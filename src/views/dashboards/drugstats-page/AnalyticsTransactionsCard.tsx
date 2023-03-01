@@ -1,3 +1,6 @@
+// ** React Imports
+import { ReactElement } from 'react'
+
 // ** MUI Imports
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
@@ -17,39 +20,49 @@ import OptionsMenu from 'src/@core/components/option-menu'
 import CustomAvatar from 'src/@core/components/mui/avatar'
 
 interface DataType {
-  icon: string
   stats: string
   title: string
   color: ThemeColor
+  icon: ReactElement
 }
 
 const salesData: DataType[] = [
   {
-    stats: '500/800',
-    title: 'โรงพยาบาล',
+    stats: '245k',
+    title: 'มูลค่ายาผู้ป่วยนอก',
     color: 'primary',
-    icon: 'mdi:trending-up'
+    icon: <Icon icon='mdi:trending-up' />
   },
   {
-    stats: '600/2000',
+    stats: '12.5k',
+    title: 'ใบสั่งยาผู้ป่วยนอก',
     color: 'success',
-    title: 'ปฐมภูมิ',
-    icon: 'mdi:account-outline'
+    icon: <Icon icon='mdi:account-outline' />
   },
   {
-    stats: '3000',
+    stats: '1.54k',
     color: 'warning',
-    title: 'ร้านขายของชำ',
-    icon: 'mdi:cellphone-link'
+    title: 'ใบสั่งยาผู้ป่วยใน',
+    icon: <Icon icon='mdi:cellphone-link' />
+  },
+  {
+    stats: '$88k',
+    color: 'info',
+    title: 'มูลค่ายาผู้ป่วยใน',
+    icon: <Icon icon='mdi:currency-usd' />
   }
 ]
 
 const renderStats = () => {
   return salesData.map((item: DataType, index: number) => (
-    <Grid item xs={12} sm={4} key={index}>
+    <Grid item xs={12} sm={3} key={index}>
       <Box key={index} sx={{ display: 'flex', alignItems: 'center' }}>
-        <CustomAvatar variant='rounded' color={item.color} sx={{ mr: 3, boxShadow: 3, width: 44, height: 44 }}>
-          <Icon icon={item.icon} fontSize='1.75rem' />
+        <CustomAvatar
+          variant='rounded'
+          color={item.color}
+          sx={{ mr: 3, boxShadow: 3, width: 44, height: 44, '& svg': { fontSize: '1.75rem' } }}
+        >
+          {item.icon}
         </CustomAvatar>
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
           <Typography variant='caption'>{item.title}</Typography>
@@ -60,34 +73,34 @@ const renderStats = () => {
   ))
 }
 
-const CrmTransactions = () => {
+const AnalyticsTransactionsCard = () => {
   return (
     <Card>
       <CardHeader
-        title='ผลงานผ่านเกณฑ์'
+        title='จำนวนใบสั่งยาและมูลค่ายา'
         /* action={
           <OptionsMenu
-            options={['Refresh', 'Share', 'Update']}
-            iconButtonProps={{ size: 'small', className: 'card-more-options', sx: { color: 'text.secondary' } }}
+            options={['Last 28 Days', 'Last Month', 'Last Year']}
+            iconButtonProps={{ size: 'small', sx: { color: 'text.primary' } }}
           />
         } */
         subheader={
           <Typography variant='body2'>
             <Box component='span' sx={{ fontWeight: 600, color: 'text.primary' }}>
-              ผลงานตามตัวชี้วัด
+              โรงพยาบาล
             </Box>{' '}
-            😎 ล่าสุด
+            😎 ปีงบประมาณ 2565
           </Typography>
         }
         titleTypographyProps={{
           sx: {
-            mb: 2.25,
+            mb: 2.5,
             lineHeight: '2rem !important',
             letterSpacing: '0.15px !important'
           }
         }}
       />
-      <CardContent sx={{ pt: theme => `${theme.spacing(0.75)} !important` }}>
+      <CardContent sx={{ pt: theme => `${theme.spacing(3)} !important` }}>
         <Grid container spacing={[5, 0]}>
           {renderStats()}
         </Grid>
@@ -96,4 +109,4 @@ const CrmTransactions = () => {
   )
 }
 
-export default CrmTransactions
+export default AnalyticsTransactionsCard

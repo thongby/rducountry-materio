@@ -18,6 +18,12 @@ import CardStatisticsVerticalComponent from 'src/@core/components/card-statistic
 // ** Styled Component Import
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
 import CrmTransactions from 'src/views/dashboards/crm/CrmTransactions'
+import CrmTotalSales from 'src/views/dashboards/crm/CrmTotalSales'
+import CrmTotalSales2 from 'src/views/dashboards/crm/CrmTotalSales2'
+import CrmRevenueReport from 'src/views/dashboards/crm/CrmRevenueReport'
+import CrmSalesOverview from 'src/views/dashboards/crm/CrmSalesOverview'
+import CrmSalesOverview2 from 'src/views/dashboards/crm/CrmSalesOverview2'
+import RDUCountryInfo from 'src/views/pages/home/Rducountryinfo'
 
 // ** Components Imports
 
@@ -54,15 +60,30 @@ const Home = () => {
         <Grid item xs={12} md={6}>
           <CrmTransactions />
         </Grid>
+        {/* <Grid item xs={12} sm={6} md={3}> */}
+        <Grid item xs={12} md={6}>
+          <CrmTotalSales />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          {/* <CrmTotalSales2/> */}
+          <CrmRevenueReport/>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <CrmSalesOverview/>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <CrmSalesOverview2/>
+        </Grid>
         <Grid item xs={12}>
           <Card>
-            <CardHeader title='Kick start your project 🚀'></CardHeader>
+            <CardHeader title='ความหมายและแนวทางการใช้ยาสมเหตุผล'></CardHeader>
             <CardContent>
-              <Typography sx={{ mb: 2 }}>All the best for your new project.</Typography>
+              {/* <Typography sx={{ mb: 2 }}>All the best for your new project.</Typography>
               <Typography>
                 Please make sure to read our Template Documentation to understand where to go from here and how to use
                 our template.
-              </Typography>
+              </Typography> */}
+              <RDUCountryInfo/>
             </CardContent>
           </Card>
         </Grid>
