@@ -23,6 +23,8 @@ import DrugValuebyRegionIPD from 'src/views/dashboards/drugstats-page/DrugValueb
 import DayAdmissionbyRegionIPD from 'src/views/dashboards/drugstats-page/DayAdmissionbyRegionIPD'
 import DrugPrescripebyRegionPrimary from 'src/views/dashboards/drugstats-page/DrugPrescripebyRegionPrimary'
 import DrugValuebyRegionPrimary from 'src/views/dashboards/drugstats-page/DrugValuebyRegionOPDPrimary'
+import Drug1000AdmissionReport from 'src/views/dashboards/drugstats-page/Drug1000AdmissionReport'
+import SeriousAEReport from 'src/views/dashboards/drugstats-page/SeriousAEReport'
 
 const DrugStatsPage = () => {
   return (
@@ -51,6 +53,12 @@ const DrugStatsPage = () => {
         </Grid>
         <Grid item xs={12} md={6}>
           <DrugValuebyRegionPrimary/>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Drug1000AdmissionReport/>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <SeriousAEReport/>
         </Grid>
       </Grid>
     </ApexChartWrapper>

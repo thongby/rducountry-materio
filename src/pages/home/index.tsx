@@ -24,6 +24,8 @@ import CrmRevenueReport from 'src/views/dashboards/crm/CrmRevenueReport'
 import CrmSalesOverview from 'src/views/dashboards/crm/CrmSalesOverview'
 import CrmSalesOverview2 from 'src/views/dashboards/crm/CrmSalesOverview2'
 import RDUCountryInfo from 'src/views/pages/home/Rducountryinfo'
+import RDUProvinceMap from 'src/views/pages/home/RDUProvinceMap'
+import RDUProvinceList from 'src/views/pages/home/RDUProvinceList'
 
 // ** Components Imports
 
@@ -60,6 +62,29 @@ const Home = () => {
         <Grid item xs={12} md={6}>
           <CrmTransactions />
         </Grid>
+        <Grid item xs={12}>
+          <Card>
+            <RDUProvinceList/>
+          </Card>
+        </Grid>
+        {/* <Grid item xs={12}>
+          <Card>
+            <CardHeader title='รายชื่อจังหวัดผ่านเกณฑ์ใช้ยาอย่างสมเหตุผล'>
+              <CardContent>
+                <RDUProvinceList/>
+              </CardContent>
+            </CardHeader>
+          </Card>
+        </Grid>  */}
+        {/* <Grid item xs={12}>
+          <Card>
+            <CardHeader title='แผนที่แสดงจังหวัดผ่านเกณฑ์ใช้ยาอย่างสมเหตุผล'>
+              <CardContent>
+                <RDUProvinceMap/>
+              </CardContent>
+            </CardHeader>
+          </Card>
+        </Grid> */}
         {/* <Grid item xs={12} sm={6} md={3}> */}
         <Grid item xs={12} md={6}>
           <CrmTotalSales />
@@ -87,7 +112,7 @@ const Home = () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           <Card>
             <CardHeader title='ACL and JWT 🔒'></CardHeader>
             <CardContent>
@@ -98,7 +123,7 @@ const Home = () => {
               <Typography>Please read our Authentication and ACL Documentations to get more out of them.</Typography>
             </CardContent>
           </Card>
-        </Grid>
+        </Grid> */}
       </Grid>
     </ApexChartWrapper>
   )
