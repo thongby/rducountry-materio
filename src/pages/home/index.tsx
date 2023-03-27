@@ -26,6 +26,11 @@ import CrmSalesOverview2 from 'src/views/dashboards/crm/CrmSalesOverview2'
 import RDUCountryInfo from 'src/views/pages/home/Rducountryinfo'
 import RDUProvinceMap from 'src/views/pages/home/RDUProvinceMap'
 import RDUProvinceList from 'src/views/pages/home/RDUProvinceList'
+import RDUProvincePerformance from 'src/views/pages/home/RDUProvincePerformance'
+import GPPPerformance from 'src/views/pages/home/GPPPerformance'
+import PrivateServicePerformance from 'src/views/pages/home/PrivateServicePerformance'
+import HPVCPerformance from 'src/views/pages/home/HPVCPerformance'
+import TAWAIPerformance from 'src/views/pages/home/TAWAIPerformance'
 
 // ** Components Imports
 
@@ -60,8 +65,14 @@ const Home = () => {
           <CardStatisticsCharacter data={data[1]} />
         </Grid>
         <Grid item xs={12} md={6}>
-          <CrmTransactions />
+          {/* <CrmTransactions /> */}
+          <RDUProvincePerformance/>
         </Grid>
+        {/* <Grid item xs={12}>
+          <Card>
+            <RDUProvinceMap/>
+          </Card>
+        </Grid> */}
         <Grid item xs={12}>
           <Card>
             <RDUProvinceList/>
@@ -87,27 +98,21 @@ const Home = () => {
         </Grid> */}
         {/* <Grid item xs={12} sm={6} md={3}> */}
         <Grid item xs={12} md={6}>
-          <CrmTotalSales />
+          <GPPPerformance />
         </Grid>
         <Grid item xs={12} md={6}>
-          {/* <CrmTotalSales2/> */}
-          <CrmRevenueReport/>
+          <PrivateServicePerformance/>
         </Grid>
         <Grid item xs={12} md={6}>
-          <CrmSalesOverview/>
+          <HPVCPerformance/>
         </Grid>
         <Grid item xs={12} md={6}>
-          <CrmSalesOverview2/>
+          <TAWAIPerformance/>
         </Grid>
         <Grid item xs={12}>
           <Card>
             <CardHeader title='ความหมายและแนวทางการใช้ยาสมเหตุผล'></CardHeader>
             <CardContent>
-              {/* <Typography sx={{ mb: 2 }}>All the best for your new project.</Typography>
-              <Typography>
-                Please make sure to read our Template Documentation to understand where to go from here and how to use
-                our template.
-              </Typography> */}
               <RDUCountryInfo/>
             </CardContent>
           </Card>

@@ -5,25 +5,42 @@ import Typography from '@mui/material/Typography'
 import CardHeader from '@mui/material/CardHeader'
 import CardContent from '@mui/material/CardContent'
 import { Button } from '@mui/material'
+import ChwProfiles from 'src/views/dashboards/chwdata-page/ChwProfiles'
+import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
+import ChwAnalyticsCard from 'src/views/dashboards/chwdata-page/ChwAnalyticsCard'
+import ChwDataMap from 'src/views/dashboards/chwdata-page/ChwDataMap'
 
 const ChwDataPage = () => {
   return (
-    <Grid container spacing={6}>
+    <ApexChartWrapper>
+      <Grid container spacing={6}>
+        <Grid item xs={12}>
+          <Card>
+            <CardHeader title='สถิติผลงานของจังหวัด'></CardHeader>
+              <CardContent>
+                <ChwAnalyticsCard/>
+              </CardContent>  
+          </Card>
+        </Grid>
+        <Grid item xs={12}>
+          <Card>
+            <CardHeader title='แผนที่ 77 จังหวัด'></CardHeader>
+              <CardContent>
+                <ChwDataMap/>
+              </CardContent>  
+          </Card>
+        </Grid>
       <Grid item xs={12}>
         <Card>
-          <CardHeader title='ข้อมูลพื้นฐานจังหวัด'></CardHeader>
+          <CardHeader title='ข้อมูลรายจังหวัด'></CardHeader>
           <CardContent>
-            <Typography sx={{ mb: 2 }}>Changwat Data</Typography>
-            <br />
-            <Typography>
-              สถิติด้านยา
-            </Typography>
-            <br />
-            <Button variant="contained">Changwat Data</Button>
+            <ChwProfiles/>
           </CardContent>
         </Card>
       </Grid>
     </Grid>
+    </ApexChartWrapper>
+    
   )
 }
 

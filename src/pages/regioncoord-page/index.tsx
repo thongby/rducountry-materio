@@ -13,13 +13,16 @@ const RegionCoordPage = () => {
         <Card>
           <CardHeader title='ผู้ประสานงานเขต'></CardHeader>
           <CardContent>
-            <Typography sx={{ mb: 2 }}>Drug Statistics</Typography>
+            <Typography sx={{ mb: 2 }}>ข้อมูลผู้ประสานงานของเขต</Typography>
             <br />
             <Typography>
-              สถิติด้านยา
+              สถิติจังหวัด
+            </Typography>
+            <Typography>
+              ข้อมูลรายจังหวัด
             </Typography>
             <br />
-            <Button variant="contained">Drug Statistics</Button>
+            <Button variant="contained">ผู้ประสานงานเขต</Button>
           </CardContent>
         </Card>
       </Grid>

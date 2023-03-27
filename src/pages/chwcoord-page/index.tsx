@@ -13,13 +13,28 @@ const ChwCoordPage = () => {
         <Card>
           <CardHeader title='ผู้ประสานงานจังหวัด'></CardHeader>
           <CardContent>
-            <Typography sx={{ mb: 2 }}>Drug Statistics</Typography>
+            <Typography sx={{ mb: 2 }}>ผู้ประสานงานจังหวัด</Typography>
             <br />
             <Typography>
-              สถิติด้านยา
+              ข้อมูลของจังหวัด
+            </Typography>
+            <Typography>
+              ข้อมูลแผนพัฒนา อำเภอเป้าหมาย ร้านชำเป้าหมาย
+            </Typography>
+            <Typography>
+              รายชื่อผู้ประสานงานของจังหวัด
+            </Typography>
+            <Typography>
+              รายชื่อผู้ประสานงานของอำเภอ
+            </Typography>
+            <Typography>
+              รายชื่ออำเภอพร้อมทั้งอำเภอเป้าหมาย
+            </Typography>
+            <Typography>
+              รายชื่อร้านขายของชำพร้อมทั้งร้านเป้าหมาย
             </Typography>
             <br />
-            <Button variant="contained">Drug Statistics</Button>
+            <Button variant="contained">ผู้ประสานงานจังหวัด</Button>
           </CardContent>
         </Card>
       </Grid>

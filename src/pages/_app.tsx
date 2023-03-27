@@ -122,12 +122,12 @@ const App = (props: ExtendedAppProps) => {
     
       <CacheProvider value={emotionCache}>
         <Head>
-          <title>{`${themeConfig.templateName} - Material Design React Admin Template`}</title>
+          <title>{`${themeConfig.templateName} - พัฒนาประเทศสู่การใช้ยาสมเหตุผล`}</title>
           <meta
             name='description'
-            content={`${themeConfig.templateName} – Material Design React Admin Dashboard Template – is the most developer friendly & highly customizable Admin Dashboard Template based on MUI v5.`}
+            content={`${themeConfig.templateName} – การพัฒนาประเทศไทยสู่การใช้ยาสมเหตุผล – การใช้ยาสมเหตุผลทั้งในโรงพยาบาล สถานบริการปฐมภูมิ ชุมชน ภาคเอกชน`}
           />
-          <meta name='keywords' content='Material Design, MUI, Admin Template, React Admin Template' />
+          <meta name='keywords' content='Rational Drug Use, RDU, RDU Country, การใช้ยาสมเหตุผล' />
           <meta name='viewport' content='initial-scale=1, width=device-width' />
         </Head>
 

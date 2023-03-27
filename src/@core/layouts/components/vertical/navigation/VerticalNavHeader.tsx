@@ -96,7 +96,7 @@ const VerticalNavHeader = (props: Props) => {
         userNavMenuBranding(props)
       ) : (
         <StyledLink href='/'>
-          <svg
+          {/* <svg
             width={30}
             height={25}
             version='1.1'
@@ -154,7 +154,7 @@ const VerticalNavHeader = (props: Props) => {
                 </g>
               </g>
             </g>
-          </svg>
+          </svg> */}
           <HeaderTitle variant='h6' sx={{ ...menuCollapsedStyles, ...(navCollapsed && !navHover ? {} : { ml: 3 }) }}>
             {themeConfig.templateName}
           </HeaderTitle>

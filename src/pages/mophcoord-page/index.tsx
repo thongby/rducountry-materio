@@ -13,13 +13,16 @@ const MophCoordPage = () => {
         <Card>
           <CardHeader title='ผู้ประสานงานกระทรวง'></CardHeader>
           <CardContent>
-            <Typography sx={{ mb: 2 }}>Drug Statistics</Typography>
+            <Typography sx={{ mb: 2 }}>ผู้ประสานงานกระทรวง</Typography>
             <br />
             <Typography>
-              สถิติด้านยา
+              สถิติจังหวัด
+            </Typography>
+            <Typography>
+              ข้อมูลรายจังหวัด
             </Typography>
             <br />
-            <Button variant="contained">Drug Statistics</Button>
+            <Button variant="contained">ผู้ประสานงานกระทรวง</Button>
           </CardContent>
         </Card>
       </Grid>

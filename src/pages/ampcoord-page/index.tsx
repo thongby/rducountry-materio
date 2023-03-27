@@ -13,13 +13,19 @@ const AmpCoordPage = () => {
         <Card>
           <CardHeader title='ผู้ประสานงานอำเภอ'></CardHeader>
           <CardContent>
-            <Typography sx={{ mb: 2 }}>Drug Statistics</Typography>
+            <Typography sx={{ mb: 2 }}>ผู้ประสานงานอำเภอ</Typography>
             <br />
             <Typography>
-              สถิติด้านยา
+              สถิติของอำเภอ
+            </Typography>
+            <Typography>
+              ข้อมูลร้านชำของอำเภอ
+            </Typography>
+            <Typography>
+              รายชื่อผู้ประสานงานอำเภอ
             </Typography>
             <br />
-            <Button variant="contained">Drug Statistics</Button>
+            <Button variant="contained">ผู้ประสานงานอำเภอ</Button>
           </CardContent>
         </Card>
       </Grid>
