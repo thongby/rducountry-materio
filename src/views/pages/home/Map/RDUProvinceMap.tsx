@@ -1,0 +1,85 @@
+import React, { useRef } from 'react'
+import { LayerGroup, LayersControl, MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
+import 'leaflet/dist/leaflet.css'
+import L from 'leaflet'
+import BaseMap from 'src/views/map/layer/BaseMap'
+import Province from 'src/views/map/layer/ProvinceByName'
+import ProvinceByHRegion from 'src/views/map/layer/ProvinceByHRegion'
+import ProvinceByRegion from 'src/views/map/layer/ProvinceByRegion'
+//import icon from "leaflet/dist/images/marker-icon.png";
+//import iconShadow from "leaflet/dist/images/marker-shadow.png";
+
+// let DefaultIcon = L.icon({
+//   iconUrl: icon,
+//   shadowUrl: iconShadow,
+// });
+
+//L.Marker.prototype.options.icon = DefaultIcon;
+
+export default function RDUProvinceMap() {
+  const mapRef: any = useRef()
+
+  return (
+    <MapContainer
+      ref={mapRef}
+      style={{ width: '100%', height: '100vh' }}
+      center={[13, 100]}
+      zoom={6}
+      scrollWheelZoom={true}
+    >
+      {/* <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      <Marker position={[17.007780000000025, 99.82300000000004]}>
+        <Popup>
+          จังหวัด A <br /> RDU Province
+        </Popup>
+      </Marker>
+      <Marker position={[15.11481, 104.32938]}>
+        <Popup>
+          จังหวัด B <br /> RDU Province
+        </Popup>
+      </Marker>
+      <Marker position={[9.14011, 99.33311]}>
+        <Popup>
+          จังหวัด C <br /> RDU Province
+        </Popup>
+      </Marker>
+      <Marker position={[16.433812, 103.506484]}>
+        <Popup>
+          จังหวัด D <br /> RDU Province
+        </Popup>
+      </Marker>
+      <Marker position={[15.40857, 100.02794]}>
+        <Popup>
+          จังหวัด E <br /> RDU Province
+        </Popup>
+      </Marker> */}
+      <LayersControl position='topright'>
+        <BaseMap />
+
+        <LayersControl.Overlay name='ข้อมูลรายจังหวัด' checked>
+          <LayerGroup>
+            <Province />
+          </LayerGroup>
+        </LayersControl.Overlay>
+
+        <LayersControl.Overlay name='ข้อมูลรายเขตสุขภาพ'>
+          <LayerGroup>
+            <ProvinceByHRegion/>
+          </LayerGroup>
+        </LayersControl.Overlay>
+
+        <LayersControl.Overlay name='ข้อมูลรายภาค'>
+          <LayerGroup>
+            <ProvinceByRegion/>
+          </LayerGroup>
+        </LayersControl.Overlay>
+
+      </LayersControl>
+    </MapContainer>
+  )
+}
+
+//export default SummaryCard;

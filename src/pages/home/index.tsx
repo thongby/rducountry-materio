@@ -17,14 +17,9 @@ import CardStatisticsVerticalComponent from 'src/@core/components/card-statistic
 
 // ** Styled Component Import
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
-import CrmTransactions from 'src/views/dashboards/crm/CrmTransactions'
-import CrmTotalSales from 'src/views/dashboards/crm/CrmTotalSales'
-import CrmTotalSales2 from 'src/views/dashboards/crm/CrmTotalSales2'
-import CrmRevenueReport from 'src/views/dashboards/crm/CrmRevenueReport'
-import CrmSalesOverview from 'src/views/dashboards/crm/CrmSalesOverview'
-import CrmSalesOverview2 from 'src/views/dashboards/crm/CrmSalesOverview2'
+
 import RDUCountryInfo from 'src/views/pages/home/Rducountryinfo'
-import RDUProvinceMap from 'src/views/pages/home/RDUProvinceMap'
+import RDUProvinceMap from 'src/views/pages/home/Map'
 import RDUProvinceList from 'src/views/pages/home/RDUProvinceList'
 import RDUProvincePerformance from 'src/views/pages/home/RDUProvincePerformance'
 import GPPPerformance from 'src/views/pages/home/GPPPerformance'
@@ -68,11 +63,11 @@ const Home = () => {
           {/* <CrmTransactions /> */}
           <RDUProvincePerformance/>
         </Grid>
-        {/* <Grid item xs={12}>
+        <Grid item xs={12}>
           <Card>
             <RDUProvinceMap/>
           </Card>
-        </Grid> */}
+        </Grid>
         <Grid item xs={12}>
           <Card>
             <RDUProvinceList/>
