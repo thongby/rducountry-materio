@@ -103,10 +103,42 @@ const geoStyle:any = (feature:any) => {
   }
 }
 
+const handleClickFeature = (event:any) => {
+  const layer = event.target
+  const prop = event.target.feature.properties
+
+  let popupContent = ''
+
+  for (const [key, val] of Object.entries(prop)) {
+
+      let roitaiImage = 'https://media.timeout.com/images/105240236/image.jpg'
+
+      if (key == 'REGION6') {
+          popupContent += "<img style='max-width:100%' src='" + roitaiImage + "'/>"
+      } else {
+
+          popupContent += '<b>' + key + '</b>' + ': ' + val + '<br />'
+      }
+  }
+  
+  layer.bindPopup(popupContent)
+  console.log('popupContent:',popupContent)
+}
+
+const handleEachFeature = (feature:any, layer:any) => {
+  layer.bindTooltip(feature.properties.ADM1_TH, {
+      direction: 'right',
+  })
+  layer.on({
+      'click': handleClickFeature
+      /* 'click': console.log('Clicked') */
+  })
+}
+
 const ProvinceByName = (props: Props) => {
     //console.log(data)
 
-  return data && <GeoJSON data={data} style={geoStyle}/>
+  return data && <GeoJSON data={data} style={geoStyle} onEachFeature={handleEachFeature}/>
 }
 
 export default ProvinceByName

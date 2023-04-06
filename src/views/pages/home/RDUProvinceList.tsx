@@ -18,11 +18,11 @@ function createData(
 }
 
 const rows = [
-  createData('A', 'ผ่าน', 'ผ่าน', 'ผ่าน', 'ผ่าน'),
-  createData('B', 'ผ่าน', 'ผ่าน', 'ผ่าน', 'ผ่าน'),
-  createData('C', 'ผ่าน', 'ผ่าน', 'ผ่าน', 'ผ่าน'),
-  createData('D', 'ผ่าน', 'ผ่าน', 'ผ่าน', 'ผ่าน'),
-  createData('E', 'ผ่าน', 'ผ่าน', 'ผ่าน', 'ผ่าน'),
+  createData('A', 'xxx', 'xxx', 'xxx', 'ผ่าน'),
+  createData('B', 'xxx', 'xxx', 'xxx', 'ผ่าน'),
+  createData('C', 'xxx', 'xxx', 'xxx', 'ผ่าน'),
+  createData('D', 'xxx', 'xxx', 'xxx', 'ผ่าน'),
+  createData('E', 'xxx', 'xxx', 'xxx', 'ผ่าน'),
 ];
 
 export default function RDUProvinceList() {
@@ -32,9 +32,9 @@ export default function RDUProvinceList() {
         <TableHead>
           <TableRow>
             <TableCell>จังหวัด</TableCell>
-            <TableCell align="right">ตัวชี้วัดโรงพยาบาล</TableCell>
-            <TableCell align="right">ตัวชี้วัดรพ.สต.</TableCell>
-            <TableCell align="right">ตัวชี้วัดร้านชำ</TableCell>
+            <TableCell align="right">จำนวนอำเภอทั้งหมด</TableCell>
+            <TableCell align="right">จำนวนอำเภอ RDU</TableCell>
+            <TableCell align="right">ร้อยละ</TableCell>
             <TableCell align="right">จังหวัดRDU</TableCell>
           </TableRow>
         </TableHead>

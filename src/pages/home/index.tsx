@@ -18,6 +18,7 @@ import CardStatisticsVerticalComponent from 'src/@core/components/card-statistic
 // ** Styled Component Import
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
 
+// ** Components Imports
 import RDUCountryInfo from 'src/views/pages/home/Rducountryinfo'
 import RDUProvinceMap from 'src/views/pages/home/Map'
 import RDUProvinceList from 'src/views/pages/home/RDUProvinceList'
@@ -26,8 +27,6 @@ import GPPPerformance from 'src/views/pages/home/GPPPerformance'
 import PrivateServicePerformance from 'src/views/pages/home/PrivateServicePerformance'
 import HPVCPerformance from 'src/views/pages/home/HPVCPerformance'
 import TAWAIPerformance from 'src/views/pages/home/TAWAIPerformance'
-
-// ** Components Imports
 
 const data: CardStatsCharacterProps[] = [
   {
@@ -60,7 +59,6 @@ const Home = () => {
           <CardStatisticsCharacter data={data[1]} />
         </Grid>
         <Grid item xs={12} md={6}>
-          {/* <CrmTransactions /> */}
           <RDUProvincePerformance/>
         </Grid>
         <Grid item xs={12}>
