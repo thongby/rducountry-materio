@@ -71,25 +71,6 @@ const Home = () => {
             <RDUProvinceList/>
           </Card>
         </Grid>
-        {/* <Grid item xs={12}>
-          <Card>
-            <CardHeader title='รายชื่อจังหวัดผ่านเกณฑ์ใช้ยาอย่างสมเหตุผล'>
-              <CardContent>
-                <RDUProvinceList/>
-              </CardContent>
-            </CardHeader>
-          </Card>
-        </Grid>  */}
-        {/* <Grid item xs={12}>
-          <Card>
-            <CardHeader title='แผนที่แสดงจังหวัดผ่านเกณฑ์ใช้ยาอย่างสมเหตุผล'>
-              <CardContent>
-                <RDUProvinceMap/>
-              </CardContent>
-            </CardHeader>
-          </Card>
-        </Grid> */}
-        {/* <Grid item xs={12} sm={6} md={3}> */}
         <Grid item xs={12} md={6}>
           <GPPPerformance />
         </Grid>
@@ -110,18 +91,6 @@ const Home = () => {
             </CardContent>
           </Card>
         </Grid>
-        {/* <Grid item xs={12}>
-          <Card>
-            <CardHeader title='ACL and JWT 🔒'></CardHeader>
-            <CardContent>
-              <Typography sx={{ mb: 2 }}>
-                Access Control (ACL) and Authentication (JWT) are the two main security features of our template and are
-                implemented in the starter-kit as well.
-              </Typography>
-              <Typography>Please read our Authentication and ACL Documentations to get more out of them.</Typography>
-            </CardContent>
-          </Card>
-        </Grid> */}
       </Grid>
     </ApexChartWrapper>
   )

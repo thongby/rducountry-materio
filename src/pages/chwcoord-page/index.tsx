@@ -25,6 +25,7 @@ import RDUAmpCoordinatorList from 'src/views/pages/misc/personel/RDUAmpCoordinat
 import RDUChwCoordinatorList from 'src/views/pages/misc/personel/RDUChwCoordinatorList'
 import RDUDoctorList from 'src/views/pages/misc/personel/RDUDoctorList'
 import RDULocalgovCoordinatorList from 'src/views/pages/misc/personel/RDULocalgovCoordinatorList'
+import CoordinatorList from 'src/views/pages/misc/personel/coordinator/list'
 
 const data: CardStatsCharacterProps[] = [
   {
@@ -66,10 +67,25 @@ const ChwCoordPage = () => {
         </Grid>
         <Grid item xs={12}>
           <Card>
-            <RDUProvinceList/>
+            <CardHeader title='ข้อมูลการพัฒนาของจังหวัด'></CardHeader>
+            <CardContent>
+              <RDUProvinceList/>
+            </CardContent>  
           </Card>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12}>
+          <CardHeader title='ข้อมูลผู้ประสานงานการพัฒนา'></CardHeader>
+          <CardContent>
+            <CoordinatorList/>
+          </CardContent>     
+        </Grid>
+        <Grid item xs={12}>
+          <CardHeader title='ข้อมูลผู้ประสานงานในองค์กรปกครองท้องถิ่น'></CardHeader>
+          <CardContent>
+            <CoordinatorList/>
+          </CardContent>     
+        </Grid>
+        {/* <Grid item xs={12} md={6}>
           <RDUDoctorList/>
         </Grid>
         <Grid item xs={12} md={6}>
@@ -80,7 +96,7 @@ const ChwCoordPage = () => {
         </Grid>
         <Grid item xs={12} md={6}>
           <RDULocalgovCoordinatorList/>
-        </Grid>
+        </Grid> */}
       </Grid>
     </ApexChartWrapper>
   )

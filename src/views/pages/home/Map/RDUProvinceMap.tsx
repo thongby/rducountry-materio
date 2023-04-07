@@ -25,37 +25,8 @@ export default function RDUProvinceMap() {
       style={{ width: '100%', height: '100vh' }}
       center={[13, 100]}
       zoom={6}
-      scrollWheelZoom={true}
+      scrollWheelZoom={false}
     >
-      {/* <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      <Marker position={[17.007780000000025, 99.82300000000004]}>
-        <Popup>
-          จังหวัด A <br /> RDU Province
-        </Popup>
-      </Marker>
-      <Marker position={[15.11481, 104.32938]}>
-        <Popup>
-          จังหวัด B <br /> RDU Province
-        </Popup>
-      </Marker>
-      <Marker position={[9.14011, 99.33311]}>
-        <Popup>
-          จังหวัด C <br /> RDU Province
-        </Popup>
-      </Marker>
-      <Marker position={[16.433812, 103.506484]}>
-        <Popup>
-          จังหวัด D <br /> RDU Province
-        </Popup>
-      </Marker>
-      <Marker position={[15.40857, 100.02794]}>
-        <Popup>
-          จังหวัด E <br /> RDU Province
-        </Popup>
-      </Marker> */}
       <LayersControl position='topright'>
         <BaseMap />
 
@@ -81,5 +52,3 @@ export default function RDUProvinceMap() {
     </MapContainer>
   )
 }
-
-//export default SummaryCard;
