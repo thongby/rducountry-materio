@@ -18,7 +18,7 @@ import CardStatisticsVerticalComponent from 'src/@core/components/card-statistic
 
 // ** Styled Component Import
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
-import RDUProvinceMap from 'src/views/pages/home/Map/RDUProvinceMap'
+import RDUProvinceMap from 'src/views/pages/home/Map'
 import RDUProvinceList from 'src/views/pages/home/RDUProvinceList'
 import RDUProvincePerformance from 'src/views/pages/home/RDUProvincePerformance'
 import RDUDoctorList from 'src/views/pages/misc/personel/RDUDoctorList'
