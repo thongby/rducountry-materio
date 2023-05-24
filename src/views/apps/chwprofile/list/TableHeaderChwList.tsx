@@ -9,40 +9,39 @@ import TextField from '@mui/material/TextField'
 import Icon from 'src/@core/components/icon'
 
 interface TableHeaderProps {
-  value: string
-  toggle: () => void
-  handleFilter: (val: string) => void
+   value: string
+//   toggle: () => void
+   handleFilter: (val: string) => void
 }
+interface Props {}
 
-const TableHeader = (props: TableHeaderProps) => {
-  //** Props */
-  const { value, toggle, handleFilter } = props
+const TableHeaderChwList = (props: TableHeaderProps) => {
+//const TableHeaderChwList = (props: Props) => {
+
+    // ** Props
+  const { handleFilter, value } = props
 
   return (
     <Box sx={{ p: 5, pb: 3, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between' }}>
-      <Button
+        <Button
         sx={{ mr: 4, mb: 2 }}
         color='secondary'
         variant='outlined'
         startIcon={<Icon icon='mdi:export-variant' fontSize={20} />}
-      >
-        Export
-      </Button>
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
+        >
+            ส่งออก
+        </Button>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
         <TextField
           size='small'
           value={value}
           sx={{ mr: 4, mb: 2 }}
-          placeholder='Search User'
+          placeholder='ค้นหา'
           onChange={e => handleFilter(e.target.value)}
         />
-
-        <Button sx={{ mb: 2 }} onClick={toggle} variant='contained'>
-          Add User
-        </Button>
       </Box>
-    </Box>
+    </Box>   
   )
 }
 
-export default TableHeader
+export default TableHeaderChwList

@@ -33,7 +33,7 @@ const Header = styled(Box)<BoxProps>(({ theme }) => ({
 }))
 
 interface UserData {
-  fullname: string
+  fullName: string
   position: string
   agency: string
   tel: string
@@ -67,7 +67,7 @@ const schema = yup.object().shape({
 })
 
 const defaultValues = {
-  fullname: '',
+  fullName: '',
   position: '',
   angency: '',
   tel: '',
@@ -76,14 +76,54 @@ const defaultValues = {
 }
 
 const SidebarAddUser = (props: SidebarAddUserType) => {
+  //** Props */
+  const { open, toggle } = props
+
+  //** Hooks */
+  const {
+    reset,
+    control,
+    setValue,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    defaultValues,
+    mode: 'onChange',
+    resolver: yupResolver(schema)
+  })
+
   return (
     <Drawer>
       <Header>
         <Typography variant='h6'>Add user</Typography>
       </Header>
-      <Box>
+      <Box sx={{p:5}}>
         <form>
-          <FormControl></FormControl>
+          <FormControl fullWidth sx={{ mb: 6 }}>
+            <Controller
+              name='fullName'
+              control={control}
+              rules={{ required: true }}
+              render={({ field: { value, onChange } }) => (
+                <TextField
+                  value={value}
+                  label='ชื่อ-นามสกุล'
+                  onChange={onChange}
+                  placeholder='John Doe'
+                  error={Boolean(errors.fullName)}
+                />
+              )}
+            />
+            {errors.fullName && <FormHelperText sx={{ color: 'error.main' }}>{errors.fullName.message}</FormHelperText>}
+          </FormControl>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <Button size='large' type='submit' variant='contained' sx={{ mr: 3 }}>
+              Submit
+            </Button>
+            <Button size='large' variant='outlined' color='secondary'>
+              Cancel
+            </Button>
+          </Box>
         </form>
       </Box>
     </Drawer>

@@ -85,6 +85,12 @@ const ChwCoordPage = () => {
             <CoordinatorList/>
           </CardContent>     
         </Grid>
+        <Grid item xs={12}>
+          <CardHeader title='ข้อมูลร้านขายของชำ'></CardHeader>
+          <CardContent>
+            ข้อมูลร้านขายของชำ
+          </CardContent>     
+        </Grid>
         {/* <Grid item xs={12} md={6}>
           <RDUDoctorList/>
         </Grid>
