@@ -18,14 +18,21 @@ import CardStatisticsVerticalComponent from 'src/@core/components/card-statistic
 
 // ** Styled Component Import
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
+
+//** Custom Imports */
 import RDUProvincePerformance from 'src/views/pages/home/RDUProvincePerformance'
 import RDUProvinceMap from 'src/views/pages/home/Map'
-import RDUProvinceList from 'src/views/pages/home/RDUProvinceList'
-import RDUAmpCoordinatorList from 'src/views/pages/misc/personel/RDUAmpCoordinatorList'
-import RDUChwCoordinatorList from 'src/views/pages/misc/personel/RDUChwCoordinatorList'
+//import RDUProvinceList from 'src/views/pages/home/RDUProvinceList'
+import RDUAmpurList from 'src/views/apps/ampurtarget/list'
+//import RDUAmpCoordinatorList from 'src/views/pages/misc/personel/RDUAmpCoordinatorList'
+//import RDUChwCoordinatorList from 'src/views/pages/misc/personel/RDUChwCoordinatorList'
 import RDUDoctorList from 'src/views/pages/misc/personel/RDUDoctorList'
 import RDULocalgovCoordinatorList from 'src/views/pages/misc/personel/RDULocalgovCoordinatorList'
 import CoordinatorList from 'src/views/pages/misc/personel/coordinator/list'
+import RDUGroceryList from 'src/views/apps/grocery/list'
+import RDUDrugstoreList from 'src/views/apps/drugstore/list'
+import RDUChwCoordinatorList from 'src/views/apps/chwcoordinator/list'
+import RDUAmpCoordinatorList from 'src/views/apps/ampurcoordinator/list'
 
 const data: CardStatsCharacterProps[] = [
   {
@@ -67,29 +74,41 @@ const ChwCoordPage = () => {
         </Grid>
         <Grid item xs={12}>
           <Card>
-            <CardHeader title='ข้อมูลการพัฒนาของจังหวัด'></CardHeader>
+            <CardHeader title='ข้อมูลอำเภอ'></CardHeader>
             <CardContent>
-              <RDUProvinceList/>
+              <RDUAmpurList/>
             </CardContent>  
           </Card>
         </Grid>
         <Grid item xs={12}>
-          <CardHeader title='ข้อมูลผู้ประสานงานการพัฒนา'></CardHeader>
+          <CardHeader title='ผู้ประสานงานจังหวัด' />
           <CardContent>
-            <CoordinatorList/>
-          </CardContent>     
+            <RDUChwCoordinatorList/>
+          </CardContent>
         </Grid>
         <Grid item xs={12}>
+          <CardHeader title='ผู้ประสานงานอำเภอ'></CardHeader>
+          <CardContent>
+            <RDUAmpCoordinatorList/>
+          </CardContent>     
+        </Grid>
+        {/* <Grid item xs={12}>
           <CardHeader title='ข้อมูลผู้ประสานงานในองค์กรปกครองท้องถิ่น'></CardHeader>
           <CardContent>
             <CoordinatorList/>
           </CardContent>     
+        </Grid> */}
+        <Grid item xs={12}>
+          <CardHeader title='ข้อมูลร้านขายของชำ'/>
+          <CardContent>
+            <RDUGroceryList/>
+          </CardContent>     
         </Grid>
         <Grid item xs={12}>
-          <CardHeader title='ข้อมูลร้านขายของชำ'></CardHeader>
+          <CardHeader title='ข้อมูลร้านขายยา'/>
           <CardContent>
-            ข้อมูลร้านขายของชำ
-          </CardContent>     
+            <RDUDrugstoreList/>
+          </CardContent>
         </Grid>
         {/* <Grid item xs={12} md={6}>
           <RDUDoctorList/>

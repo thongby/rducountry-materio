@@ -23,14 +23,13 @@ import { useForm, Controller } from 'react-hook-form'
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
 
-interface SidebarAddGroceryType {
+interface SidebarAddAmpCoordType {
   open: boolean
   toggle: () => void
 }
 
-interface GroceryData {
+interface AmpCoordData {
   shopname: string
-  shopowner: string
   changwat: string
   ampur: number
   tambon: string
@@ -58,7 +57,6 @@ const Header = styled(Box)<BoxProps>(({ theme }) => ({
 
 const defaultValues = {
   shopname: '',
-  shopowner: '',
   changwat: '',
   ampur: '',
   tambon: '',
@@ -66,7 +64,7 @@ const defaultValues = {
   rdupass: ''
 }
 
-const SidebarAddGrocery = (props: SidebarAddGroceryType) => {
+const SidebarAddChwCoord = (props: SidebarAddAmpCoordType) => {
   // ** Props
   const { open, toggle } = props
 
@@ -88,15 +86,15 @@ const SidebarAddGrocery = (props: SidebarAddGroceryType) => {
       sx={{ '& .MuiDrawer-paper': { width: { xs: 300, sm: 400 } } }}
     >
       <Header>
-        <Typography variant='h6'>เพิ่มข้อมูลร้านชำ</Typography>
+        <Typography variant='h6'>เพิ่มผู้ประสานงานจังหวัด</Typography>
         <IconButton size='small' onClick={handleClose} sx={{ color: 'text.primary' }}>
           <Icon icon='mdi:close' fontSize={20} />
         </IconButton>
       </Header>
-      <Box sx={{p:5}}>
+      <Box sx={{ p: 5 }}>
         <form>
           <FormControl>
-            <div>AddGroceryDrawer</div>
+            <div>AddChwCoordDrawer</div>
           </FormControl>
         </form>
       </Box>
@@ -104,4 +102,4 @@ const SidebarAddGrocery = (props: SidebarAddGroceryType) => {
   )
 }
 
-export default SidebarAddGrocery
+export default SidebarAddChwCoord

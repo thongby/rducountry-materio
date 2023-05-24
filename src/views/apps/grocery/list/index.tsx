@@ -27,6 +27,7 @@ import Icon from 'src/@core/components/icon'
 
 // ** Custom Table Components Imports
 import TableHeaderGroceryList from './TableHeaderGroceryList'
+import AddGroceryDrawer from './AddGroceryDrawer'
 
 type Props = {}
 
@@ -82,6 +83,7 @@ const GroceryList = (props: Props) => {
     const [value, setValue] = useState<string>('')
     const [status, setStatus] = useState<string>('')
     const [pageSize, setPageSize] = useState<number>(10)
+    const [addGroceryOpen, setAddGroceryOpen] = useState<boolean>(false)
   
     const handleFilter = useCallback((val: string) => {
       setValue(val)
@@ -99,6 +101,8 @@ const GroceryList = (props: Props) => {
       setStatus(e.target.value)
     }, [])
   
+    const toggleAddGroceryDrawer = () => setAddGroceryOpen(!addGroceryOpen)
+
     return (
       <Grid container spacing={6}>
         <Grid item xs={12}>
@@ -178,7 +182,7 @@ const GroceryList = (props: Props) => {
               </Grid>
             </CardContent>
             <Divider />
-            <TableHeaderGroceryList value={value} handleFilter={handleFilter} />
+            <TableHeaderGroceryList value={value} toggle={toggleAddGroceryDrawer} handleFilter={handleFilter} />
             {/* <DataGrid
               autoHeight
               rows={store.data}
@@ -209,6 +213,7 @@ const GroceryList = (props: Props) => {
             />
           </Card>
         </Grid>
+        <AddGroceryDrawer open={addGroceryOpen} toggle={toggleAddGroceryDrawer}/>
       </Grid>
     )
   }
