@@ -99,29 +99,17 @@ const ChwCoordPage = () => {
           </CardContent>     
         </Grid> */}
         <Grid item xs={12}>
-          <CardHeader title='ข้อมูลร้านขายของชำ'/>
+          {/* <CardHeader title='ข้อมูลร้านขายของชำ'/> */}
           <CardContent>
             <RDUGroceryList/>
           </CardContent>     
         </Grid>
         <Grid item xs={12}>
-          <CardHeader title='ข้อมูลร้านขายยา'/>
+          {/* <CardHeader title='ข้อมูลร้านขายยา'/> */}
           <CardContent>
             <RDUDrugstoreList/>
           </CardContent>
         </Grid>
-        {/* <Grid item xs={12} md={6}>
-          <RDUDoctorList/>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <RDUChwCoordinatorList/>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <RDUAmpCoordinatorList/>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <RDULocalgovCoordinatorList/>
-        </Grid> */}
       </Grid>
     </ApexChartWrapper>
   )

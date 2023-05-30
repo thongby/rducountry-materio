@@ -23,18 +23,16 @@ import { useForm, Controller } from 'react-hook-form'
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
 
-interface SidebarAddAmpCoordType {
+interface SidebarAddChwCoordType {
   open: boolean
   toggle: () => void
 }
 
-interface AmpCoordData {
-  shopname: string
-  changwat: string
-  ampur: number
-  tambon: string
+interface ChwCoordData {
+  fullname: string
+  position: string
+  email: string
   tel: string
-  rdupass: string
 }
 
 const showErrors = (field: string, valueLen: number, min: number) => {
@@ -55,25 +53,50 @@ const Header = styled(Box)<BoxProps>(({ theme }) => ({
   backgroundColor: theme.palette.background.default
 }))
 
+const schema = yup.object().shape({
+  fullname: yup.string().required(),
+  position: yup.string().required(),
+  email: yup.string().required(),
+  tel: yup.string().required(),
+})
+
 const defaultValues = {
-  shopname: '',
-  changwat: '',
-  ampur: '',
-  tambon: '',
-  tel: '',
-  rdupass: ''
+  fullname: '',
+  position: '',
+  email: '',
+  tel: ''
 }
 
-const SidebarAddChwCoord = (props: SidebarAddAmpCoordType) => {
+const SidebarAddChwCoord = (props: SidebarAddChwCoordType) => {
   // ** Props
   const { open, toggle } = props
 
+  //** State */
+  const [changwat, setChangwat] = useState<string>('')
+  const [ampur, setAmpur] = useState<string>('')
+  const [tambon, setTambon] = useState<string>('')
+  const [hagency, setHAgency] = useState<string>('')
+
+  // ** Hooks
+  const {
+    reset,
+    control,
+    setValue,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    defaultValues,
+    mode: 'onChange',
+    resolver: yupResolver(schema)
+  })
+
   const handleClose = () => {
-    // setPlan('basic')
-    // setRole('subscriber')
-    // setValue('contact', Number(''))
+    setChangwat('')
+    setAmpur('')
+    setTambon('')
+    setHAgency('')
     toggle()
-    // reset()
+    reset()
   }
 
   return (
@@ -93,9 +116,82 @@ const SidebarAddChwCoord = (props: SidebarAddAmpCoordType) => {
       </Header>
       <Box sx={{ p: 5 }}>
         <form>
-          <FormControl>
-            <div>AddChwCoordDrawer</div>
+          <FormControl fullWidth sx={{ mb: 6 }}>
+          <Controller
+              name='fullname'
+              control={control}
+              rules={{required:true}}
+              render={({field:{value,onChange}})=>(
+                <TextField
+                  value={value}
+                  onChange={onChange}
+                  placeholder='ระบุชื่อ-นามสกุล'
+                  label='ชื่อ-นามสกุล'
+                  error={Boolean(errors.fullname)}
+                />
+              )}
+            />
+            {errors.fullname && <FormHelperText sx={{ color: 'error.main'}}>{errors.fullname.message}</FormHelperText>}
           </FormControl>
+          <FormControl fullWidth sx={{ mb: 6 }}>
+          <Controller
+              name='position'
+              control={control}
+              rules={{required:true}}
+              render={({field:{value,onChange}})=>(
+                <TextField
+                  value={value}
+                  onChange={onChange}
+                  placeholder='ระบุตำแหน่ง'
+                  label='ตำแหน่ง'
+                  error={Boolean(errors.position)}
+                />
+              )}
+            />
+            {errors.position && <FormHelperText sx={{ color: 'error.main'}}>{errors.position.message}</FormHelperText>}
+          </FormControl>
+          <FormControl fullWidth sx={{ mb: 6 }}>
+          <Controller
+              name='email'
+              control={control}
+              rules={{required:true}}
+              render={({field:{value,onChange}})=>(
+                <TextField
+                  value={value}
+                  onChange={onChange}
+                  placeholder='ระบุอีเมล์'
+                  label='อีเมล์'
+                  error={Boolean(errors.email)}
+                />
+              )}
+            />
+            {errors.email && <FormHelperText sx={{ color: 'error.main'}}>{errors.email.message}</FormHelperText>}
+          </FormControl>
+          <FormControl fullWidth sx={{ mb: 6 }}>
+          <Controller
+              name='tel'
+              control={control}
+              rules={{required:true}}
+              render={({field:{value,onChange}})=>(
+                <TextField
+                  value={value}
+                  onChange={onChange}
+                  placeholder='ระบุหมายเลขโทรศัพท์'
+                  label='หมายเลขโทรศัพท์'
+                  error={Boolean(errors.tel)}
+                />
+              )}
+            />
+            {errors.tel && <FormHelperText sx={{ color: 'error.main'}}>{errors.tel.message}</FormHelperText>}
+          </FormControl>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <Button size='large' type='submit' variant='contained' sx={{ mr: 3 }}>
+              Submit
+            </Button>
+            <Button size='large' variant='outlined' color='secondary' onClick={handleClose}>
+              Cancel
+            </Button>
+          </Box>
         </form>
       </Box>
     </Drawer>

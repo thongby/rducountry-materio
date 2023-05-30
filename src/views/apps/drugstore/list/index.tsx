@@ -106,7 +106,7 @@ const DrugstoreList = (props: Props) => {
     <Grid container spacing={6}>
       <Grid item xs={12}>
         <Card>
-          <CardHeader title='ค้นหาข้อมูล' />
+          <CardHeader title='ร้านขายยา' />
           <CardContent>
             <Grid container spacing={6}>
               <Grid item sm={4} xs={12}>
