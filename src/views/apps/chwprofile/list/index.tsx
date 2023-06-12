@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import { useCallback, useState, useEffect, MouseEvent } from 'react'
 
 // ** Next Imports
 import Link from 'next/link'
@@ -25,43 +25,55 @@ import Select, { SelectChangeEvent } from '@mui/material/Select'
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
 
+//** Action Imports */
+import { fetchChwprofile } from 'src/store/apps/chwprofile'
+
 // ** Custom Table Components Imports
 import TableHeaderChwList from './TableHeaderChwList'
 
 type Props = {}
 
-//const columns = []
-const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 90 },
-  {
-    field: 'firstName',
-    headerName: 'First name',
-    width: 150,
-    editable: false,
-  },
-  {
-    field: 'lastName',
-    headerName: 'Last name',
-    width: 150,
-    editable: false,
-  },
-  {
-    field: 'age',
-    headerName: 'Age',
-    type: 'number',
-    width: 110,
-    editable: false,
-  },
-  {
-    field: 'fullName',
-    headerName: 'Full name',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
-    width: 160,
-    valueGetter: (params: GridValueGetterParams) =>
-      `${params.row.firstName || ''} ${params.row.lastName || ''}`,
-  },
-];
+const columns = [
+  {flex: 0.1, field: 'region', headerName: 'เขต', minWidth: 80},
+  {flex: 0.1, field: 'chw_id', headerName: 'รหัสจังหวัด', minWidth: 80},
+  {flex: 0.1, field: 'chw_name', headerName: 'จังหวัด', minWidth: 200},
+  {flex: 0.1, field: 'amphoecnt', headerName: 'จำนวนอำเภอทั้งหมด', minWidth: 150},
+  {flex: 0.1, field: 'rduampurcnt', headerName: 'จำนวนอำเภอผ่านเกณฑ์', minWidth: 150},
+  {flex: 0.1, field: 'rduampurpercent', headerName: 'อำเภอผ่านเกณฑ์ (%)', minWidth: 150},
+  {flex: 0.1, field: 'chwrdupass', headerName: 'ผ่านเกณฑ์', minWidth: 80},
+]
+
+// const columns: GridColDef[] = [
+//   { field: 'id', headerName: 'ID', width: 90 },
+//   {
+//     field: 'firstName',
+//     headerName: 'First name',
+//     width: 150,
+//     editable: false,
+//   },
+//   {
+//     field: 'lastName',
+//     headerName: 'Last name',
+//     width: 150,
+//     editable: false,
+//   },
+//   {
+//     field: 'age',
+//     headerName: 'Age',
+//     type: 'number',
+//     width: 110,
+//     editable: false,
+//   },
+//   {
+//     field: 'fullName',
+//     headerName: 'Full name',
+//     description: 'This column has a value getter and is not sortable.',
+//     sortable: false,
+//     width: 160,
+//     valueGetter: (params: GridValueGetterParams) =>
+//       `${params.row.firstName || ''} ${params.row.lastName || ''}`,
+//   },
+// ];
 
 const rows = [
   { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },

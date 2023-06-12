@@ -14,10 +14,10 @@ const navigation = (): VerticalNavItemsType => {
       badgeContent: 'สถิติ',
       badgeColor: 'error',
       children: [
-        /* {
-          title: 'ภาพรวมการพัฒนา',
+        {
+          title: 'กรุงเทพมหานคร (เขต 13)',
           path: '/dashboards/rduprovince-page'
-        }, */
+        },
         {
           title: 'สถิติด้านยา',
           path: '/dashboards/drugstats-page'

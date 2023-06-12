@@ -28,6 +28,14 @@ const TableHeaderDrugstoreList = (props: TableHeaderProps) => {
       >
         ส่งออก
       </Button>
+      <Button
+        sx={{ mr: 4, mb: 2 }}
+        color='secondary'
+        variant='outlined'
+        startIcon={<Icon icon='mdi:export-variant' fontSize={20} />}
+      >
+        นำเข้าข้อมูล
+      </Button>
       <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
         <TextField
           size='small'

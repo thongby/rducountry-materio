@@ -17,19 +17,19 @@ const RDUProvinceDashboard = (props: Props) => {
       <Grid container spacing={6}>
         <Grid item xs={12}>
           <Card>
-            <CardHeader title='สถิติผลงานจังหวัด'></CardHeader>
+            <CardHeader title='ผลงานพื้นที่กรุงเทพมหานคร'></CardHeader>
               <CardContent>
                 <Typography>
-                    ผลงานจังหวัด อำเภอ ร้านชำเป้าหมาย
+                    ผลงานหน่วยบริการในกรุงเทพมหานคร
                 </Typography>
               </CardContent>  
           </Card>
         </Grid>
         <Grid item xs={12}>
           <Card>
-            <CardHeader title='แผนที่แสดงผลงานทั้งประเทศ'></CardHeader>
+            <CardHeader title='แผนที่แสดงผลงาน'></CardHeader>
               <CardContent>
-                แผนที่แสดงผลงานทั้งประเทศ
+                แผนที่แสดงผลงานในกรุงเทพมหานคร
               </CardContent>  
           </Card>
         </Grid>
