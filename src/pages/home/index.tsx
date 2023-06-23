@@ -28,6 +28,8 @@ import GPPPerformance from 'src/views/pages/home/GPPPerformance'
 import PrivateServicePerformance from 'src/views/pages/home/PrivateServicePerformance'
 import HPVCPerformance from 'src/views/pages/home/HPVCPerformance'
 import TAWAIPerformance from 'src/views/pages/home/TAWAIPerformance'
+import PrivateClinicPerformance from 'src/views/pages/home/PrivateClinicPerformance'
+import PrivateHospitalPerformance from 'src/views/pages/home/PrivateHospitalPerformance'
 
 const data: CardStatsCharacterProps[] = [
   {
@@ -81,7 +83,10 @@ const Home = () => {
           <GPPPerformance />
         </Grid>
         <Grid item xs={12} md={6}>
-          <PrivateServicePerformance/>
+          <PrivateClinicPerformance/>
+        </Grid>
+        <Grid item xs={12}>
+          <PrivateHospitalPerformance/>
         </Grid>
         <Grid item xs={12} md={6}>
           <HPVCPerformance/>

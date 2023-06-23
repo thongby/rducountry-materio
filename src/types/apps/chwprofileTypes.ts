@@ -1,0 +1,36 @@
+export type chwprofileType = {
+    region: string;
+    chw_id: string;
+    chw_name: string;
+    logo_url: string;
+    lat: number;
+    long: number;
+    amphoecnt: number;
+    tamboncnt: number;
+    moobancnt: number;
+    ytargetrdu: string;
+    tamphoecnt: number;
+    tgroceriescnt: number;
+    rduampurcnt: number;
+    rduampurpercent: number;
+    chwrdpass: boolean;
+    hosmophsp: number;
+    hosmophnonsp: number;
+    hosuniversity: number;
+    hosinterior: number;
+    hosmilitary: number;
+    hosothers: number;
+    healthprimary: number;
+    drugstorecat1: number;
+    drugstorecat2: number;
+    drugstorecat3: number;
+    drugstorecat4: number;
+    shop711: number;
+    groceries: number;
+    factory: number;
+    schoolgov: number;
+    schoolprivate: number;
+    schoollocal: number;
+    schoolothers: number;
+    others: number;
+}

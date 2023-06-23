@@ -15,6 +15,7 @@ async () => {
 
 const initialState = {
     data: [],
+    loading: false,
 }
 
 export const appChwProfileSlice = createSlice({
@@ -23,9 +24,14 @@ export const appChwProfileSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(fetchChwprofile.fulfilled, (state, action) => {
-            state.data = action.payload
-        })
-    }
+            state.loading = false;
+            state.data = action.payload;
+        });
+
+        builder.addCase(fetchChwprofile.pending,(state, action) => {
+            state.loading = true;
+        });
+    },
 })
 
 export default appChwProfileSlice.reducer

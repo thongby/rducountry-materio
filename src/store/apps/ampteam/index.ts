@@ -4,11 +4,11 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import axios from 'axios';
 
-import { rdugroceryURL } from 'src/configs/appURL';
+import { ampteamURL } from 'src/configs/appURL';
 
-export const fetchRDUGrocery = createAsyncThunk("rdugrocery/getAllRDUGrocery",
+export const fetchAmpTeam = createAsyncThunk("ampteam/getAllAmpTeam",
 async () => {
-    const res = await axios.get(rdugroceryURL);
+    const res = await axios.get(ampteamURL);
     //const data = await res.json();
 
     return res.data;
@@ -19,20 +19,20 @@ const initialState = {
     loading: false,
 }
 
-export const appGrocerySlice = createSlice({
-    name: 'appGrocery',
+export const appAmpTeamSlice = createSlice({
+    name: 'appAmpTeam',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(fetchRDUGrocery.fulfilled, (state, action) => {
+        builder.addCase(fetchAmpTeam.fulfilled, (state, action) => {
             state.loading = false;
             state.data = action.payload;
         });
 
-        builder.addCase(fetchRDUGrocery.pending, (state, action) => {
+        builder.addCase(fetchAmpTeam.pending, (state, action) => {
             state.loading = true;
         });
     },
 })
 
-export default appGrocerySlice.reducer
+export default appAmpTeamSlice.reducer
