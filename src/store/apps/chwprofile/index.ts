@@ -7,10 +7,11 @@ import { chwProfileURL } from 'src/configs/appURL';
 
 export const fetchChwprofile = createAsyncThunk("chwprofile/getAllChwprofile",
 async () => {
-    const res = await axios.get(chwProfileURL);
+    const {data} = await axios.get(chwProfileURL);
     //const data = await res.json();
+    //console.log(data);
 
-    return res.data;
+    return data.data;
 })
 
 const initialState = {

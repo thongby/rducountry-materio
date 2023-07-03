@@ -21,8 +21,8 @@ import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
 // ** Components Imports
 import RDUCountryInfo from 'src/views/pages/home/Rducountryinfo'
 import RDUProvinceMap from 'src/views/pages/home/Map'
-import RDUProvinceList from 'src/views/pages/home/RDUProvinceList'
-import ChwProfileList from 'src/views/apps/chwprofile/list'
+import RDUProvinceList from 'src/views/apps/chwprofile/list'
+import ChwProfileList from 'src/views/apps/chwdata/list'
 import RDUProvincePerformance from 'src/views/pages/home/RDUProvincePerformance'
 import GPPPerformance from 'src/views/pages/home/GPPPerformance'
 import PrivateServicePerformance from 'src/views/pages/home/PrivateServicePerformance'
@@ -64,22 +64,22 @@ const Home = () => {
         <Grid item xs={12} md={6}>
           <RDUProvincePerformance/>
         </Grid>
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           <Card>
             <RDUProvinceMap/>
           </Card>
-        </Grid>
+        </Grid> */}
         <Grid item xs={12}>
           <Card>
             <RDUProvinceList/>
           </Card>
         </Grid>
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           <Card>
             <ChwProfileList/>
           </Card>
-        </Grid>
-        <Grid item xs={12} md={6}>
+        </Grid> */}
+        {/* <Grid item xs={12} md={6}>
           <GPPPerformance />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -93,7 +93,7 @@ const Home = () => {
         </Grid>
         <Grid item xs={12} md={6}>
           <TAWAIPerformance/>
-        </Grid>
+        </Grid> */}
         <Grid item xs={12}>
           <Card>
             <CardHeader title='ความหมายและแนวทางการใช้ยาสมเหตุผล'></CardHeader>
