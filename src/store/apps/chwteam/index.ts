@@ -11,7 +11,7 @@ async () => {
     const res = await axios.get(chwteamURL);
     //const data = await res.json();
 
-    return res.data;
+    return res.data.data;
 })
 
 const initialState = {
