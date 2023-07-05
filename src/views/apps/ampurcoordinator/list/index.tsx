@@ -1,4 +1,5 @@
-import React, { useCallback, useState } from 'react'
+// ** React Imports
+import React, { useCallback, MouseEvent, useEffect, useState } from 'react'
 
 // ** Next Imports
 import Link from 'next/link'
@@ -10,8 +11,7 @@ import Card from '@mui/material/Card'
 import Menu from '@mui/material/Menu'
 import Grid from '@mui/material/Grid'
 import Divider from '@mui/material/Divider'
-//import { DataGrid } from '@mui/x-data-grid'
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid'
+import { DataGrid } from '@mui/x-data-grid'
 import { styled } from '@mui/material/styles'
 import MenuItem from '@mui/material/MenuItem'
 import IconButton from '@mui/material/IconButton'
@@ -25,43 +25,156 @@ import Select, { SelectChangeEvent } from '@mui/material/Select'
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
 
+// ** Store Imports
+import { useDispatch, useSelector } from 'react-redux'
+
+// ** Actions Imports
+import { fetchAmpTeam } from 'src/store/apps/ampteam'
+
+// ** Third Party Components
+import axios from 'axios'
+
+// ** Types Imports
+import { RootState, AppDispatch } from 'src/store'
+import { ThemeColor } from 'src/@core/layouts/types'
+import { ampteamType } from 'src/types/apps/ampteamTypes' 
+
 // ** Custom Table Components Imports
 import TableHeaderAmpCoordList from './TableHeaderAmpCoordList'
 import AddAmpCoordDrawer from './AddAmpCoordDrawer'
 
+const StyledLink = styled(Link)(({ theme }) => ({
+  fontWeight: 600,
+  fontSize: '1rem',
+  cursor: 'pointer',
+  textDecoration: 'none',
+  color: theme.palette.text.secondary,
+  '&:hover': {
+    color: theme.palette.primary.main
+  }
+}))
+
 type Props = {}
 
-//const columns = []
-const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 90 },
+const columns: any = [
   {
-    field: 'firstName',
-    headerName: 'First name',
-    width: 150,
-    editable: false
+    flex: 0.2,
+    minWidth: 50,
+    field: 'chw_id',
+    headerName: 'รหัสจังหวัด',
   },
   {
-    field: 'lastName',
-    headerName: 'Last name',
-    width: 150,
-    editable: false
+    flex: 0.2,
+    minWidth: 50,
+    field: 'chw',
+    headerName: 'จังหวัด',
   },
   {
-    field: 'age',
-    headerName: 'Age',
-    type: 'number',
-    width: 110,
-    editable: false
+    flex: 0.2,
+    minWidth: 50,
+    field: 'amp_id',
+    headerName: 'รหัสอำเภอ',
   },
   {
-    field: 'fullName',
-    headerName: 'Full name',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
-    width: 160,
-    valueGetter: (params: GridValueGetterParams) => `${params.row.firstName || ''} ${params.row.lastName || ''}`
-  }
+    flex: 0.2,
+    minWidth: 50,
+    field: 'amp',
+    headerName: 'อำเภอ',
+  },
+  {
+    flex: 0.2,
+    minWidth: 50,
+    field: 'name',
+    headerName: 'ชื่อ - นามสกุล',
+  },
+  {
+    flex: 0.2,
+    minWidth: 50,
+    field: 'position',
+    headerName: 'ตำแหน่ง',
+  },
+  {
+    flex: 0.2,
+    minWidth: 50,
+    field: 'office',
+    headerName: 'สังกัด',
+  },
+  {
+    flex: 0.2,
+    minWidth: 50,
+    field: 'tel',
+    headerName: 'โทรศัพท์',
+  },
+  {
+    flex: 0.2,
+    minWidth: 50,
+    field: 'email',
+    headerName: 'อีเมล์',
+  },
 ]
+
+const  RowOptions = () => {
+  // ** Hooks
+  const dispatch = useDispatch<AppDispatch>()
+
+  // ** State
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+
+  const rowOptionsOpen = Boolean(anchorEl)
+
+  const handleRowOptionsClick = (event: MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget)
+  }
+  const handleRowOptionsClose = () => {
+    setAnchorEl(null)
+  }
+
+  const handleDelete = () => {
+    //dispatch(deleteUser(id))
+    handleRowOptionsClose()
+  }
+
+  return (
+    <>
+      <IconButton size='small' onClick={handleRowOptionsClick}>
+        <Icon icon='mdi:dots-vertical' />
+      </IconButton>
+      <Menu
+        keepMounted
+        anchorEl={anchorEl}
+        open={rowOptionsOpen}
+        onClose={handleRowOptionsClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right'
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right'
+        }}
+        PaperProps={{ style: { minWidth: '8rem' } }}
+      >
+        <MenuItem
+          component={Link}
+          sx={{ '& svg': { mr: 2 } }}
+          onClick={handleRowOptionsClose}
+          href='/apps/user/view/overview/'
+        >
+          <Icon icon='mdi:eye-outline' fontSize={20} />
+          View
+        </MenuItem>
+        <MenuItem onClick={handleRowOptionsClose} sx={{ '& svg': { mr: 2 } }}>
+          <Icon icon='mdi:pencil-outline' fontSize={20} />
+          Edit
+        </MenuItem>
+        <MenuItem onClick={handleDelete} sx={{ '& svg': { mr: 2 } }}>
+          <Icon icon='mdi:delete-outline' fontSize={20} />
+          Delete
+        </MenuItem>
+      </Menu>
+    </>
+  )
+}
 
 const rows = [
   { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
@@ -83,6 +196,14 @@ const AmpCoordList = (props: Props) => {
   const [status, setStatus] = useState<string>('')
   const [pageSize, setPageSize] = useState<number>(10)
   const [addAmpCoordOpen, setAddAmpCoordOpen] = useState<boolean>(false)
+
+  // ** Hooks
+  const dispatch = useDispatch<AppDispatch>()
+  const store = useSelector((state: RootState) => state.ampteam)
+
+  useEffect(() => {
+    dispatch(fetchAmpTeam())
+  },[dispatch])
 
   const handleFilter = useCallback((val: string) => {
     setValue(val)
@@ -182,7 +303,7 @@ const AmpCoordList = (props: Props) => {
           </CardContent>
           <Divider />
           <TableHeaderAmpCoordList value={value} toggle={toggleAddAmpCoordDrawer} handleFilter={handleFilter} />
-          {/* <DataGrid
+          <DataGrid
               autoHeight
               rows={store.data}
               columns={columns}
@@ -191,24 +312,7 @@ const AmpCoordList = (props: Props) => {
               disableSelectionOnClick
               rowsPerPageOptions={[10, 25, 50]}
               onPageSizeChange={(newPageSize: number) => setPageSize(newPageSize)}
-            /> */}
-
-          <DataGrid
-            autoHeight
-            rows={rows}
-            columns={columns}
-            /* initialState={{
-                pagination: {
-                      paginationModel: {
-                      pageSize: 5,
-                    },
-                  },
-                }} */
-            pageSize={5}
-            rowsPerPageOptions={[10, 25, 50]}
-            /* pageSizeOptions={[5]} */
-            checkboxSelection
-            disableSelectionOnClick
+              getRowId={(row:any) => row._id}
           />
         </Card>
       </Grid>

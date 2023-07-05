@@ -38,7 +38,7 @@ import axios from 'axios'
 // ** Types Imports
 import { RootState, AppDispatch } from 'src/store'
 import { ThemeColor } from 'src/@core/layouts/types'
-import { chwteamType } from 'src/types/apps/chwTeamTypes' 
+import { chwteamType } from 'src/types/apps/chwteamTypes' 
 
 // ** Utils Import
 import { getInitials } from 'src/@core/utils/get-initials'

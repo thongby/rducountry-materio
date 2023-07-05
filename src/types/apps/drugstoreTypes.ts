@@ -1,4 +1,5 @@
 export type drugstoreType = {
+    _id: string;
     chwseq: string;
     examdate: string;
     chwid: string;
