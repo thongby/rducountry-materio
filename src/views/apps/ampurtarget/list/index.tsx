@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState, MouseEvent } from 'react'
 
 // ** Next Imports
 import Link from 'next/link'
@@ -10,8 +10,8 @@ import Card from '@mui/material/Card'
 import Menu from '@mui/material/Menu'
 import Grid from '@mui/material/Grid'
 import Divider from '@mui/material/Divider'
-//import { DataGrid } from '@mui/x-data-grid'
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid'
+import { DataGrid } from '@mui/x-data-grid'
+//import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid'
 import { styled } from '@mui/material/styles'
 import MenuItem from '@mui/material/MenuItem'
 import IconButton from '@mui/material/IconButton'
@@ -25,54 +25,123 @@ import Select, { SelectChangeEvent } from '@mui/material/Select'
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
 
+// ** Store Imports
+import { useDispatch, useSelector } from 'react-redux'
+
+// ** Actions Imports
+import { fetchRDUAmpur } from 'src/store/apps/rduampur'
+
+// ** Third Party Components
+import axios from 'axios'
+
 // ** Custom Table Components Imports
 import TableHeaderAmpList from './TableHeaderAmpList'
 
+// ** Types Imports
+import { RootState, AppDispatch } from 'src/store'
+import { ThemeColor } from 'src/@core/layouts/types'
+import { rduampurType } from 'src/types/apps/rduampurTypes'
+
+// ** Utils Import
+import { getInitials } from 'src/@core/utils/get-initials'
+
+const StyledLink = styled(Link)(({ theme }) => ({
+  fontWeight: 600,
+  fontSize: '1rem',
+  cursor: 'pointer',
+  textDecoration: 'none',
+  color: theme.palette.text.secondary,
+  '&:hover': {
+    color: theme.palette.primary.main
+  }
+}))
+
+
 type Props = {}
 
-//const columns = []
-const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 90 },
+const columns:any = [
   {
-    field: 'firstName',
-    headerName: 'First name',
-    width: 150,
-    editable: false
+    flex: 0.2,
+    minWidth: 50,
+    field: 'am_id',
+    headerName: 'รหัสอำเภอ',
   },
   {
-    field: 'lastName',
-    headerName: 'Last name',
-    width: 150,
-    editable: false
+    flex: 0.2,
+    minWidth: 100,
+    field: 'amphoe_t',
+    headerName: 'อำเภอ',
   },
   {
-    field: 'age',
-    headerName: 'Age',
-    type: 'number',
-    width: 110,
-    editable: false
+    flex: 0.2,
+    minWidth: 50,
+    field: 'ch_id',
+    headerName: 'รหัสจังหวัด',
   },
-  {
-    field: 'fullName',
-    headerName: 'Full name',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
-    width: 160,
-    valueGetter: (params: GridValueGetterParams) => `${params.row.firstName || ''} ${params.row.lastName || ''}`
-  }
 ]
 
-const rows = [
-  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-  { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-  { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-  { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-  { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-  { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 }
-]
+const  RowOptions = () => {
+  // ** Hooks
+  const dispatch = useDispatch<AppDispatch>()
+
+  // ** State
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+
+  const rowOptionsOpen = Boolean(anchorEl)
+
+  const handleRowOptionsClick = (event: MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget)
+  }
+  const handleRowOptionsClose = () => {
+    setAnchorEl(null)
+  }
+
+  const handleDelete = () => {
+    //dispatch(deleteUser(id))
+    handleRowOptionsClose()
+  }
+
+  return (
+    <>
+      <IconButton size='small' onClick={handleRowOptionsClick}>
+        <Icon icon='mdi:dots-vertical' />
+      </IconButton>
+      <Menu
+        keepMounted
+        anchorEl={anchorEl}
+        open={rowOptionsOpen}
+        onClose={handleRowOptionsClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right'
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right'
+        }}
+        PaperProps={{ style: { minWidth: '8rem' } }}
+      >
+        <MenuItem
+          component={Link}
+          sx={{ '& svg': { mr: 2 } }}
+          onClick={handleRowOptionsClose}
+          href='/apps/user/view/overview/'
+        >
+          <Icon icon='mdi:eye-outline' fontSize={20} />
+          View
+        </MenuItem>
+        <MenuItem onClick={handleRowOptionsClose} sx={{ '& svg': { mr: 2 } }}>
+          <Icon icon='mdi:pencil-outline' fontSize={20} />
+          Edit
+        </MenuItem>
+        <MenuItem onClick={handleDelete} sx={{ '& svg': { mr: 2 } }}>
+          <Icon icon='mdi:delete-outline' fontSize={20} />
+          Delete
+        </MenuItem>
+      </Menu>
+    </>
+  )
+}
 
 const AmpTargetList = (props: Props) => {
   //** State */
@@ -81,6 +150,14 @@ const AmpTargetList = (props: Props) => {
   const [value, setValue] = useState<string>('')
   const [status, setStatus] = useState<string>('')
   const [pageSize, setPageSize] = useState<number>(10)
+
+  // ** Hooks
+  const dispatch = useDispatch<AppDispatch>()
+  const store = useSelector((state: RootState) => state.rduampur)
+
+  useEffect(() => {
+    dispatch(fetchRDUAmpur())
+  },[dispatch])
 
   const handleFilter = useCallback((val: string) => {
     setValue(val)
@@ -178,7 +255,7 @@ const AmpTargetList = (props: Props) => {
           </CardContent>
           <Divider />
           <TableHeaderAmpList value={value} handleFilter={handleFilter} />
-          {/* <DataGrid
+          <DataGrid
             autoHeight
             rows={store.data}
             columns={columns}
@@ -187,24 +264,7 @@ const AmpTargetList = (props: Props) => {
             disableSelectionOnClick
             rowsPerPageOptions={[10, 25, 50]}
             onPageSizeChange={(newPageSize: number) => setPageSize(newPageSize)}
-          /> */}
-
-          <DataGrid
-            autoHeight
-            rows={rows}
-            columns={columns}
-            /* initialState={{
-              pagination: {
-                    paginationModel: {
-                    pageSize: 5,
-                  },
-                },
-              }} */
-            pageSize={5}
-            rowsPerPageOptions={[10, 25, 50]}
-            /* pageSizeOptions={[5]} */
-            checkboxSelection
-            disableSelectionOnClick
+            getRowId={(row:any) => row.am_id}
           />
         </Card>
       </Grid>
