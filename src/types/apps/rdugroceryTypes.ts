@@ -1,4 +1,5 @@
 export type rdugroceryType = {
+    _id: string;
     chw_id: string;
     chw_name: string;
     amp_id: string;
