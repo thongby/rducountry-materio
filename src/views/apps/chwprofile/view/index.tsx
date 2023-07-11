@@ -1,24 +1,32 @@
 import React from 'react'
 
 // ** MUI Components
+//** MUI Imports */
 import Grid from '@mui/material/Grid'
 
-import ChwOverview from './ChwOverview'
+//** Type Imports */
+
+//** Components Imports */
+import ChwViewLeft from './ChwViewLeft'
+import ChwViewRight from './ChwViewRight'
+//import ChwOverview from './ChwOverview'
 
 
-type Props = {}
+type Props = {
+  tab: string
+}
 
-const RDUProvinceView = (props: Props) => {
+const ChwProfileView = ({tab}: Props) => {
   return (
     <Grid container spacing={6}>
-        <Grid item xl={4} md={5} xs={12}>
-            <ChwOverview/>
+        <Grid item lg={4} md={5} xs={12}>
+          <ChwViewLeft/>
         </Grid>
-        <Grid item xl={8} md={7} xs={12}>
-
+        <Grid item lg={8} md={7} xs={12}>
+          <ChwViewRight tab={tab}/>
         </Grid>
     </Grid>
   )
 }
 
-export default RDUProvinceView
+export default ChwProfileView

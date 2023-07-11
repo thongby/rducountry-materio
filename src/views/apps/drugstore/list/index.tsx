@@ -181,7 +181,7 @@ const DrugstoreList = (props: Props) => {
 
   // ** Hooks
   const dispatch = useDispatch<AppDispatch>()
-  const store = useSelector((state: RootState) => state.grocery)
+  const store = useSelector((state: RootState) => state.drugstore)
 
   useEffect(() => {
     dispatch(fetchDrugStore())
