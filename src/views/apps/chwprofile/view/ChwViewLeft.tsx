@@ -53,6 +53,10 @@ const ChwViewLeft = (props: Props) => {
             <Divider sx={{ my: theme => `${theme.spacing(4)} !important` }} />
             <Box sx={{ pb: 1 }}>
               <Box sx={{ display: 'flex', mb: 2 }}>
+                <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>ปีงบประมาณเป้หมายผ่านเกณฑ์:</Typography>
+                <Typography variant='body2'>ใส่ปีงบประมาณ</Typography>
+              </Box>
+              <Box sx={{ display: 'flex', mb: 2 }}>
                 <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>อำเภอทั้งหมด(แห่ง):</Typography>
                 <Typography variant='body2'>ใส่จำนวนอำเภอ</Typography>
               </Box>
