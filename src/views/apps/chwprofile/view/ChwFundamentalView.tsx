@@ -44,6 +44,22 @@ interface ColorsType {
 }
 
 const ChwFundamentalView = (props: Props) => {
+  // ** States
+  const [openEdit, setOpenEdit] = useState<boolean>(false)
+
+  // Handle Edit dialog
+  const handleEditClickOpen = () => setOpenEdit(true)
+  const handleEditClose = () => setOpenEdit(false)
+
+  // ** data from store
+  // if (data){
+  //   insert code below here
+  // }
+  // else
+  // {
+  //   return null
+  // }
+
   return (
     <Grid container spacing={6}>
       <Grid item xs={12}>
@@ -146,6 +162,193 @@ const ChwFundamentalView = (props: Props) => {
               </Box>
             </Box>
           </CardContent>
+          <CardActions sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Button variant='contained' sx={{ mr: 2 }} onClick={handleEditClickOpen}>
+                แก้ไขข้อมูล
+            </Button>
+          </CardActions>
+
+          <Dialog
+              open={openEdit}
+              onClose={handleEditClose}
+              aria-labelledby='user-view-edit'
+              sx={{ '& .MuiPaper-root': { width: '100%', maxWidth: 650, p: [2, 10] } }}
+              aria-describedby='chw-view-edit-fundamental'
+            >
+              <DialogTitle id='chw-fundamental-edit' sx={{ textAlign: 'center', fontSize: '1.5rem !important' }}>
+                แก้ไขข้อมูลพื้นฐาน
+              </DialogTitle>
+              <DialogContent>
+                <DialogContentText variant='body2' id='chw-view-edit-fundamental' sx={{ textAlign: 'center', mb: 7 }}>
+                  แก้ไขรายละเอียดข้อมูลพื้นฐาน
+                </DialogContentText>
+                <form>
+                  <Grid container spacing={6}>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                       fullWidth 
+                       label='จำนวนอำเภอ(แห่ง)' 
+                       defaultValue="XXX" />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        fullWidth
+                        label='จำนวนตำบล'
+                        defaultValue="XXX"
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                       fullWidth 
+                       label='จำนวนหมู่บ้าน(แห่ง)' 
+                       defaultValue="XXX" 
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        fullWidth
+                        label='โรงพยาบาลสังกัดสป.สธ.(แห่ง)'
+                        defaultValue="XXX"
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                       fullWidth 
+                       label='โรงพยาบาลนอกสังกัดสป.สธ.(แห่ง)' 
+                       defaultValue="XXX" 
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        fullWidth
+                        label='โรงพยาบาลสังกัดมหาวิทยาลัย(แห่ง)'
+                        defaultValue="XXX"
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                       fullWidth 
+                       label='โรงพยาบาลนอกสังกัด ก.มหาดไทย(แห่ง)' 
+                       defaultValue="XXX" 
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        fullWidth
+                        label='โรงพยาบาลสังกัด ก.กลาโหม(แห่ง)'
+                        defaultValue="XXX"
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                       fullWidth 
+                       label='โรงพยาบาลนอกสังกัดอื่น(แห่ง)' 
+                       defaultValue="XXX" 
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        fullWidth
+                        label='สถานบริการปฐมภูมิ(แห่ง)'
+                        defaultValue="XXX"
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                       fullWidth 
+                       label='ร้านขายยาขย.1(แห่ง)' 
+                       defaultValue="XXX" 
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        fullWidth
+                        label='ร้านขายยาขย.2(แห่ง)'
+                        defaultValue="XXX"
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                       fullWidth 
+                       label='ร้านขายยาขย.3(แห่ง)' 
+                       defaultValue="XXX" 
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        fullWidth
+                        label='ร้านขายยาขย.4(แห่ง)'
+                        defaultValue="XXX"
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                       fullWidth 
+                       label='ร้าน 7-11(แห่ง)' 
+                       defaultValue="XXX" 
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        fullWidth
+                        label='ร้านขายของชำ(แห่ง)'
+                        defaultValue="XXX"
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                       fullWidth 
+                       label='โรงงาน(แห่ง)' 
+                       defaultValue="XXX" 
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        fullWidth
+                        label='โรงเรียนรัฐบาล(แห่ง)'
+                        defaultValue="XXX"
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                       fullWidth 
+                       label='โรงเรียนเอกชน(แห่ง)' 
+                       defaultValue="XXX" 
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        fullWidth
+                        label='โรงเรียนสังกัดอปท.(แห่ง)'
+                        defaultValue="XXX"
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                       fullWidth 
+                       label='โรงเรียนสังกัดอื่น(แห่ง)' 
+                       defaultValue="XXX" 
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        fullWidth
+                        label='อื่นๆ(แห่ง)'
+                        defaultValue="XXX"
+                      />
+                    </Grid>
+                  </Grid>
+                </form>
+              </DialogContent>
+              <DialogActions sx={{ justifyContent: 'center' }}>
+              <Button variant='contained' sx={{ mr: 1 }} onClick={handleEditClose}>
+                  บันทึก
+                </Button>
+                <Button variant='outlined' color='secondary' onClick={handleEditClose}>
+                  ยกเลิก
+                </Button>
+              </DialogActions>
+            </Dialog>
         </Card>
       </Grid>
     </Grid>
