@@ -64,7 +64,7 @@ const RDUProvincePerformance = () => {
   return (
     <Card>
       <CardHeader
-        title='ผลงานผ่านเกณฑ์'
+        title='ผลงานเขต 1-12'
         /* action={
           <OptionsMenu
             options={['Refresh', 'Share', 'Update']}

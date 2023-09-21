@@ -30,6 +30,18 @@ import HPVCPerformance from 'src/views/pages/home/HPVCPerformance'
 import TAWAIPerformance from 'src/views/pages/home/TAWAIPerformance'
 import PrivateClinicPerformance from 'src/views/pages/home/PrivateClinicPerformance'
 import PrivateHospitalPerformance from 'src/views/pages/home/PrivateHospitalPerformance'
+import RDUBMAPerformance from 'src/views/pages/home/RDUBMAPerformance'
+import GPPOverview from 'src/views/pages/home/GPPOverview'
+import PrivateClinicOverview from 'src/views/pages/home/PrivateClinicOverview'
+import PrivateHospitalOverview from 'src/views/pages/home/PrivateHospitalOverview'
+import RDUHospitalOverview from 'src/views/pages/home/RDUHospitalOverview'
+import RDUHospitalPerformance from 'src/views/pages/home/RDUHospitalPerformance'
+import RDUPCUPerformance from 'src/views/pages/home/RDUPCUPerformance'
+import RDUPCUOverview from 'src/views/pages/home/RDUPCUOverview'
+import RDUPCUPMAPerformance from 'src/views/pages/home/RDUPCUPMAPerformance'
+import RDUPCUPMAOverview from 'src/views/pages/home/RDUPCUPMAOverview'
+import RDUGroceryPerformance from 'src/views/pages/home/RDUGroceryPerformance'
+import RDUGroceryOverview from 'src/views/pages/home/RDUGroceryOverview'
 
 const data: CardStatsCharacterProps[] = [
   {
@@ -61,14 +73,41 @@ const Home = () => {
         <Grid item xs={12} sm={6} md={3} sx={{ pt: theme => `${theme.spacing(12.25)} !important` }}>
           <CardStatisticsCharacter data={data[1]} />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid xs={12} md={6}>
+          <RDUBMAPerformance/>
+        </Grid>
+        <Grid item xs={12}>
           <RDUProvincePerformance/>
         </Grid>
-        {/* <Grid item xs={12}>
+        <Grid item xs={12} md={6}>
+          <RDUHospitalOverview/>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <RDUHospitalPerformance/>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <RDUPCUPerformance/>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <RDUPCUOverview/>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <RDUPCUPMAPerformance/>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <RDUPCUPMAOverview/>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <RDUGroceryPerformance/>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <RDUGroceryOverview/>
+        </Grid>
+        <Grid item xs={12}>
           <Card>
             <RDUProvinceMap/>
           </Card>
-        </Grid> */}
+        </Grid>
         <Grid item xs={12}>
           <Card>
             <RDUProvinceList/>
@@ -79,21 +118,30 @@ const Home = () => {
             <ChwProfileList/>
           </Card>
         </Grid> */}
-        {/* <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6}>
           <GPPPerformance />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <GPPOverview/>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <PrivateClinicOverview/>
         </Grid>
         <Grid item xs={12} md={6}>
           <PrivateClinicPerformance/>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} md={6}>
           <PrivateHospitalPerformance/>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <PrivateHospitalOverview/>
         </Grid>
         <Grid item xs={12} md={6}>
           <HPVCPerformance/>
         </Grid>
         <Grid item xs={12} md={6}>
           <TAWAIPerformance/>
-        </Grid> */}
+        </Grid>
         <Grid item xs={12}>
           <Card>
             <CardHeader title='ความหมายและแนวทางการใช้ยาสมเหตุผล'></CardHeader>
