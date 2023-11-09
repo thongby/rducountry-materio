@@ -36,7 +36,7 @@ const AnalyticsTrophy = () => {
           โรงพยาบาลและชุมชน
         </Typography>
         <Typography variant='h5' sx={{ my: 4, color: 'primary.main' }}>
-          ปีงบประมาณ 25565
+          ปีงบประมาณ 2565
         </Typography>
         <Button size='small' variant='contained'>
           โปรดติดตาม

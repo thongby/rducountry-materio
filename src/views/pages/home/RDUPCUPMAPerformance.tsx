@@ -65,7 +65,7 @@ const RDUPCUPMAPerformance = () => {
     <Card>
       <CardHeader
         title='รพ.สต.ถ่ายโอนรายเขต'
-        subheader='3000'
+        subheader='รอปรับปรุงช้อมูล'
         subheaderTypographyProps={{
           sx: { mt: 1, fontWeight: 500, lineHeight: '2rem', color: 'text.primary', fontSize: '1.25rem !important' }
         }}
@@ -89,7 +89,7 @@ const RDUPCUPMAPerformance = () => {
           type='bar'
           height={206}
           options={options}
-          series={[{ name: 'Total Sales', data: [60, 258, 30, 240, 150, 200, 100, 25, 30, 50, 40, 60, 70] }]}
+          series={[{ name: 'Total Sales', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] }]}
         />
       </CardContent>
     </Card>

@@ -39,7 +39,7 @@ const TAWAIPerformance = () => {
     stroke: { width: 0 },
     legend: { show: false },
     dataLabels: { enabled: false },
-    labels: ['AE1', 'AE2', 'AE3', 'อื่นๆ'],
+    labels: ['ANTIBIOTIC', 'VACCINE', 'CYTOSTATICS', 'ANTIINFLAMMATORY'],
     states: {
       hover: {
         filter: { type: 'none' }
@@ -63,15 +63,15 @@ const TAWAIPerformance = () => {
             value: {
               offsetY: -15,
               fontWeight: 500,
-              formatter: value => `${value}k`,
+              formatter: value => `${value}`,
               color: theme.palette.text.primary
             },
             total: {
               show: true,
               fontSize: '0.875rem',
-              label: 'TAWAI',
+              label: 'HPVC',
               color: theme.palette.text.secondary,
-              formatter: value => `${value.globals.seriesTotals.reduce((total: number, num: number) => total + num)}k`
+              formatter: value => `${value.globals.seriesTotals.reduce((total: number, num: number) => total + num)}`
             }
           }
         }
@@ -82,7 +82,7 @@ const TAWAIPerformance = () => {
   return (
     <Card>
       <CardHeader
-        title='อาการข้างเคียงของยาจาก TAWAI'
+        title='กลุ่มยาที่มีรายงานผลข้างเคียงปี 2565 (HPVC)'
         titleTypographyProps={{
           sx: { lineHeight: '2rem !important', letterSpacing: '0.15px !important' }
         }}
@@ -96,7 +96,7 @@ const TAWAIPerformance = () => {
       <CardContent>
         <Grid container sx={{ my: [0, 4, 1.625] }}>
           <Grid item xs={12} sm={6} sx={{ mb: [3, 0] }}>
-            <ReactApexcharts type='donut' height={220} series={[12, 25, 13, 50]} options={options} />
+            <ReactApexcharts type='donut' height={220} series={[15499, 12695, 11455, 9007]} options={options} />
           </Grid>
           <Grid item xs={12} sm={6} sx={{ my: 'auto' }}>
             <Box sx={{ mr: 2, display: 'flex', alignItems: 'center' }}>
@@ -104,8 +104,8 @@ const TAWAIPerformance = () => {
                 <Icon icon='mdi:currency-usd' />
               </CustomAvatar>
               <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                <Typography variant='body2'>จำนวนรายงาน</Typography>
-                <Typography variant='h6'>3,400</Typography>
+                <Typography variant='body2'>รายงานทั้งหมด</Typography>
+                <Typography variant='h6'>99,642</Typography>
               </Box>
             </Box>
             <Divider sx={{ my: theme => `${theme.spacing(4)} !important` }} />
@@ -120,9 +120,9 @@ const TAWAIPerformance = () => {
                   }}
                 >
                   <Icon icon='mdi:circle' />
-                  <Typography variant='body2'>AE1</Typography>
+                  <Typography variant='body2'>ANTIBIOTIC</Typography>
                 </Box>
-                <Typography sx={{ fontWeight: 600 }}>1,150</Typography>
+                <Typography sx={{ fontWeight: 600 }}>15,499</Typography>
               </Grid>
               <Grid item xs={6} sx={{ mb: 4 }}>
                 <Box
@@ -134,9 +134,9 @@ const TAWAIPerformance = () => {
                   }}
                 >
                   <Icon icon='mdi:circle' />
-                  <Typography variant='body2'>AE2</Typography>
+                  <Typography variant='body2'>VACCINE</Typography>
                 </Box>
-                <Typography sx={{ fontWeight: 600 }}>900</Typography>
+                <Typography sx={{ fontWeight: 600 }}>12,695</Typography>
               </Grid>
               <Grid item xs={6}>
                 <Box
@@ -148,9 +148,9 @@ const TAWAIPerformance = () => {
                   }}
                 >
                   <Icon icon='mdi:circle' />
-                  <Typography variant='body2'>AE3</Typography>
+                  <Typography variant='body2'>CYTOSTATICS</Typography>
                 </Box>
-                <Typography sx={{ fontWeight: 600 }}>750</Typography>
+                <Typography sx={{ fontWeight: 600 }}>11,455</Typography>
               </Grid>
               <Grid item xs={6}>
                 <Box
@@ -162,9 +162,9 @@ const TAWAIPerformance = () => {
                   }}
                 >
                   <Icon icon='mdi:circle' />
-                  <Typography variant='body2'>อื่นๆ</Typography>
+                  <Typography variant='body2'>ANTIINFLAMMATORY</Typography>
                 </Box>
-                <Typography sx={{ fontWeight: 600 }}>200</Typography>
+                <Typography sx={{ fontWeight: 600 }}>9,007</Typography>
               </Grid>
             </Grid>
           </Grid>

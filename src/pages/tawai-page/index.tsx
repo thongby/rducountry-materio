@@ -20,7 +20,9 @@ const TawaiPage = () => {
             เช่น ศูนย์วิชาการเฝ้าระวังและพัฒนาระบบยา (กพย.) ศูนย์เฝ้าระวังความปลอดภัยด้านผลิตภัณฑ์สุขภาพ (Health Product Vigilance Center Thailand) เขตบริการสุขภาพที่ 10 และเขตบริการสุขภาพที่ 12 เป็นต้น
             </Typography>
             <br />
-            <Button variant="contained">TaWai for Health</Button>
+            <Button variant="contained" href="https://tawaiforhealth.org/">
+              TaWai for Health
+            </Button>
           </CardContent>
         </Card>
       </Grid>

@@ -63,7 +63,7 @@ const PrivateClinicOverview = () => {
             value: {
               offsetY: -15,
               fontWeight: 500,
-              formatter: value => `${value}%`,
+              formatter: value => `${value}`,
               color: theme.palette.text.primary
             },
             total: {
@@ -71,7 +71,7 @@ const PrivateClinicOverview = () => {
               fontSize: '0.875rem',
               label: 'คลินิกเอกชน',
               color: theme.palette.text.secondary,
-              formatter: value => `${value.globals.seriesTotals.reduce((total: number, num: number) => total + num)}%`
+              formatter: value => `${value.globals.seriesTotals.reduce((total: number, num: number) => total + num)}`
             }
           }
         }
@@ -82,7 +82,7 @@ const PrivateClinicOverview = () => {
   return (
     <Card>
       <CardHeader
-        title='ภาพรวมคลินิกเอกชน'
+        title='ภาพรวมคลินิกเอกชน (เฉพาะที่รายงาน)'
         titleTypographyProps={{
           sx: { lineHeight: '2rem !important', letterSpacing: '0.15px !important' }
         }}
@@ -96,7 +96,7 @@ const PrivateClinicOverview = () => {
       <CardContent>
         <Grid container sx={{ my: [0, 4, 1.625] }}>
           <Grid item xs={12} sm={6} sx={{ mb: [3, 0] }}>
-            <ReactApexcharts type='donut' height={220} series={[12, 25, 13, 50]} options={options} />
+            <ReactApexcharts type='donut' height={220} series={[640, 299, 23, 0]} options={options} />
           </Grid>
           <Grid item xs={12} sm={6} sx={{ my: 'auto' }}>
             <Box sx={{ mr: 2, display: 'flex', alignItems: 'center' }}>
@@ -104,8 +104,8 @@ const PrivateClinicOverview = () => {
                 <Icon icon='mdi:currency-usd' />
               </CustomAvatar>
               <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                <Typography variant='body2'>จำนวนคลินิกเอกชน</Typography>
-                <Typography variant='h6'>26,400</Typography>
+                <Typography variant='body2'>จำนวนคลินิกเอกชนที่ผ่านเกณฑ์</Typography>
+                <Typography variant='h6'>962</Typography>
               </Box>
             </Box>
             <Divider sx={{ my: theme => `${theme.spacing(4)} !important` }} />
@@ -122,7 +122,7 @@ const PrivateClinicOverview = () => {
                   <Icon icon='mdi:circle' />
                   <Typography variant='body2'>เวชกรรม</Typography>
                 </Box>
-                <Typography sx={{ fontWeight: 600 }}>12,150</Typography>
+                <Typography sx={{ fontWeight: 600 }}>640</Typography>
               </Grid>
               <Grid item xs={6} sx={{ mb: 4 }}>
                 <Box
@@ -136,7 +136,7 @@ const PrivateClinicOverview = () => {
                   <Icon icon='mdi:circle' />
                   <Typography variant='body2'>เฉพาะทาง</Typography>
                 </Box>
-                <Typography sx={{ fontWeight: 600 }}>4,900</Typography>
+                <Typography sx={{ fontWeight: 600 }}>299</Typography>
               </Grid>
               <Grid item xs={6}>
                 <Box
@@ -150,7 +150,7 @@ const PrivateClinicOverview = () => {
                   <Icon icon='mdi:circle' />
                   <Typography variant='body2'>สหคลินิก</Typography>
                 </Box>
-                <Typography sx={{ fontWeight: 600 }}>2,750</Typography>
+                <Typography sx={{ fontWeight: 600 }}>23</Typography>
               </Grid>
               <Grid item xs={6}>
                 <Box
@@ -164,7 +164,7 @@ const PrivateClinicOverview = () => {
                   <Icon icon='mdi:circle' />
                   <Typography variant='body2'>อื่นๆ</Typography>
                 </Box>
-                <Typography sx={{ fontWeight: 600 }}>200</Typography>
+                <Typography sx={{ fontWeight: 600 }}>0</Typography>
               </Grid>
             </Grid>
           </Grid>

@@ -45,18 +45,18 @@ import RDUGroceryOverview from 'src/views/pages/home/RDUGroceryOverview'
 
 const data: CardStatsCharacterProps[] = [
   {
-    stats: '25/77',
+    stats: '64/76',
     title: 'จังหวัด RDU',
-    trendNumber: '32.47%',
+    trendNumber: '84.21%',
     chipColor: 'primary',
     chipText: 'จังหวัดใช้ยาสมเหตุผล',
     src: '/images/cards/pose_f9.png'
   },
   {
-    stats: '200/878',
+    stats: '477/877',
     //trend: 'negative',
     title: 'อำเภอ RDU',
-    trendNumber: '22.78%',
+    trendNumber: '64.00%',
     chipText: 'อำเภอใช้ยาสมเหตุผล',
     chipColor: 'secondary',
     src: '/images/cards/pose_m18.png'
@@ -79,7 +79,7 @@ const Home = () => {
         <Grid item xs={12}>
           <RDUProvincePerformance/>
         </Grid>
-        <Grid item xs={12} md={6}>
+        {/* <Grid item xs={12} md={6}>
           <RDUHospitalOverview/>
         </Grid>
         <Grid item xs={12} md={6}>
@@ -90,19 +90,19 @@ const Home = () => {
         </Grid>
         <Grid item xs={12} md={6}>
           <RDUPCUOverview/>
-        </Grid>
+        </Grid> */}
         <Grid item xs={12} md={6}>
           <RDUPCUPMAPerformance/>
         </Grid>
         <Grid item xs={12} md={6}>
           <RDUPCUPMAOverview/>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={12}>
           <RDUGroceryPerformance/>
         </Grid>
-        <Grid item xs={12} md={6}>
+        {/* <Grid item xs={12} md={6}>
           <RDUGroceryOverview/>
-        </Grid>
+        </Grid> */}
         <Grid item xs={12}>
           <Card>
             <RDUProvinceMap/>
@@ -118,12 +118,12 @@ const Home = () => {
             <ChwProfileList/>
           </Card>
         </Grid> */}
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12}>
           <GPPPerformance />
         </Grid>
-        <Grid item xs={12} md={6}>
+        {/* <Grid item xs={12} md={6}>
           <GPPOverview/>
-        </Grid>
+        </Grid> */}
         <Grid item xs={12} md={6}>
           <PrivateClinicOverview/>
         </Grid>

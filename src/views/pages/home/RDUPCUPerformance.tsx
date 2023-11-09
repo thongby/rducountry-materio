@@ -64,7 +64,7 @@ const RDUPCUPerformance = () => {
   return (
     <Card>
       <CardHeader
-        title='ปฐมภูมิเขต 1-12'
+        title='ปฐมภูมิเขต 1-12 (สป.สธ.)'
         subheader='20000'
         subheaderTypographyProps={{
           sx: { mt: 1, fontWeight: 500, lineHeight: '2rem', color: 'text.primary', fontSize: '1.25rem !important' }

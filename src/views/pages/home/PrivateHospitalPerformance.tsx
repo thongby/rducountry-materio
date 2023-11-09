@@ -11,7 +11,7 @@ import { ApexOptions } from 'apexcharts'
 import OptionsMenu from 'src/@core/components/option-menu'
 import ReactApexcharts from 'src/@core/components/react-apexcharts'
 
-const GPPPerformance = () => {
+const PrivateHospitalPerformance = () => {
   // ** Hook
   const theme = useTheme()
 
@@ -64,7 +64,7 @@ const GPPPerformance = () => {
   return (
     <Card>
       <CardHeader
-        title='โรงพยาบาลเอกชนผ่านเกณฑ์ RDU รายเขต'
+        title='โรงพยาบาลเอกชนผ่านเกณฑ์ RDU ระดับ 2 รายเขต (เฉพาะที่รายงาน)'
         subheader='100'
         subheaderTypographyProps={{
           sx: { mt: 1, fontWeight: 500, lineHeight: '2rem', color: 'text.primary', fontSize: '1.25rem !important' }
@@ -89,11 +89,11 @@ const GPPPerformance = () => {
           type='bar'
           height={206}
           options={options}
-          series={[{ name: 'Total Sales', data: [60, 258, 30, 240, 150, 200, 100, 25, 30, 50, 40, 60, 70] }]}
+          series={[{ name: 'Total Sales', data: [18, 7, 5, 7, 12, 18, 2, 1, 8, 2, 7, 2, 32] }]}
         />
       </CardContent>
     </Card>
   )
 }
 
-export default GPPPerformance
+export default PrivateHospitalPerformance

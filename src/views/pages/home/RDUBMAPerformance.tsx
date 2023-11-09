@@ -25,7 +25,7 @@ interface DataType {
 
 const salesData: DataType[] = [
   {
-    stats: '5/9  7.35%',
+    stats: '0/68  0.00%',
     title: 'สำนักอนามัย กทม.',
     color: 'primary',
     icon: 'mdi:trending-up'
@@ -37,7 +37,7 @@ const salesData: DataType[] = [
     icon: 'mdi:account-outline'
   },
   {
-    stats: '6/8    75.00%',
+    stats: '0/8    0.00%',
     color: 'warning',
     title: 'กรมการแพทย์ กระทรวงสาธารณสุข',
     icon: 'mdi:cellphone-link'

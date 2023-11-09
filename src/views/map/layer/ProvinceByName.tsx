@@ -106,7 +106,8 @@ const geoStyle:any = (feature:any) => {
 const handleClickFeature = (event:any) => {
   const layer = event.target
   const prop = event.target.feature.properties
-
+  //console.log(prop)
+  
   let popupContent = ''
 
   for (const [key, val] of Object.entries(prop)) {
@@ -122,7 +123,14 @@ const handleClickFeature = (event:any) => {
   }
   
   layer.bindPopup(popupContent)
-  console.log('popupContent:',popupContent)
+  //console.log('popupContent:',popupContent)
+  //layer.bindPopup('โรงพยาบาลผ่านเกณฑ์: xxx','ร้านขายยาผ่านเกณฑ์: xxx');
+  //layer.bindPopup('ปฐมภูมิผ่านเกณฑ์: xxx');
+  //layer.bindPopup('ร้านขายของชำผ่านเกณฑ์: xxx');
+  //layer.bindPopup('โรงพยาบาลเอกชนผ่านเกณฑ์: xxx');
+  //layer.bindPopup('คลินิกเอกชนผ่านเกณฑ์: xxx');
+  //layer.bindPopup(tempArray);
+
 }
 
 const handleEachFeature = (feature:any, layer:any) => {

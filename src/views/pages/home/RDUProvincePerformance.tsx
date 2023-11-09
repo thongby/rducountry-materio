@@ -1,96 +1,96 @@
 // ** MUI Imports
-import Box from '@mui/material/Box'
-import Grid from '@mui/material/Grid'
 import Card from '@mui/material/Card'
+import { useTheme } from '@mui/material/styles'
 import CardHeader from '@mui/material/CardHeader'
-import Typography from '@mui/material/Typography'
 import CardContent from '@mui/material/CardContent'
 
-// ** Icon Imports
-import Icon from 'src/@core/components/icon'
-
-// ** Types
-import { ThemeColor } from 'src/@core/layouts/types'
+// ** Third Party Imports
+import { ApexOptions } from 'apexcharts'
 
 // ** Custom Components Imports
 import OptionsMenu from 'src/@core/components/option-menu'
-import CustomAvatar from 'src/@core/components/mui/avatar'
-
-interface DataType {
-  icon: string
-  stats: string
-  title: string
-  color: ThemeColor
-}
-
-const salesData: DataType[] = [
-  {
-    stats: '500/800',
-    title: 'โรงพยาบาล',
-    color: 'primary',
-    icon: 'mdi:trending-up'
-  },
-  {
-    stats: '600/2000',
-    color: 'success',
-    title: 'ปฐมภูมิ',
-    icon: 'mdi:account-outline'
-  },
-  {
-    stats: '3000',
-    color: 'warning',
-    title: 'ร้านขายของชำ',
-    icon: 'mdi:cellphone-link'
-  }
-]
-
-const renderStats = () => {
-  return salesData.map((item: DataType, index: number) => (
-    <Grid item xs={12} sm={4} key={index}>
-      <Box key={index} sx={{ display: 'flex', alignItems: 'center' }}>
-        <CustomAvatar variant='rounded' color={item.color} sx={{ mr: 3, boxShadow: 3, width: 44, height: 44 }}>
-          <Icon icon={item.icon} fontSize='1.75rem' />
-        </CustomAvatar>
-        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-          <Typography variant='caption'>{item.title}</Typography>
-          <Typography variant='h6'>{item.stats}</Typography>
-        </Box>
-      </Box>
-    </Grid>
-  ))
-}
+import ReactApexcharts from 'src/@core/components/react-apexcharts'
 
 const RDUProvincePerformance = () => {
+  // ** Hook
+  const theme = useTheme()
+
+  const options: ApexOptions = {
+    chart: {
+      parentHeightOffset: 0,
+      toolbar: { show: false }
+    },
+    fill: {
+      type: 'gradient',
+      gradient: {
+        opacityTo: 0.2,
+        opacityFrom: 1,
+        shadeIntensity: 0,
+        type: 'horizontal',
+        stops: [0, 100, 100]
+      }
+    },
+    stroke: {
+      width: 5,
+      curve: 'smooth',
+      lineCap: 'round'
+    },
+    legend: { show: false },
+    colors: [theme.palette.success.main],
+    grid: {
+      show: false,
+      padding: {
+        left: 0,
+        right: 0,
+        bottom: -10
+      }
+    },
+    xaxis: {
+      axisTicks: { show: false },
+      axisBorder: { show: false },
+      categories: ['1', '2', '3', '4', '5', '6','7','8','9','10','11','12'],
+      labels: {
+        style: {
+          fontSize: '0.875rem',
+          colors: theme.palette.text.disabled
+        }
+      }
+    },
+    yaxis: {
+      labels: { show: false }
+    }
+  }
+
   return (
     <Card>
       <CardHeader
-        title='ผลงานเขต 1-12'
+        title='ผลงานจังหวัด RDU เขต 1-12'
+        subheader='ร้อยละ'
+        subheaderTypographyProps={{
+          sx: { mt: 1, fontWeight: 500, lineHeight: '2rem', color: 'text.primary', fontSize: '1.25rem !important' }
+        }}
         /* action={
           <OptionsMenu
-            options={['Refresh', 'Share', 'Update']}
-            iconButtonProps={{ size: 'small', className: 'card-more-options', sx: { color: 'text.secondary' } }}
+            options={['Last 28 Days', 'Last Month', 'Last Year']}
+            iconButtonProps={{ size: 'small', sx: { color: 'text.primary' } }}
           />
         } */
-        subheader={
-          <Typography variant='body2'>
-            <Box component='span' sx={{ fontWeight: 600, color: 'text.primary' }}>
-              ผลงานตามตัวชี้วัด
-            </Box>{' '}
-            😎 ล่าสุด
-          </Typography>
-        }
         titleTypographyProps={{
           sx: {
-            mb: 2.25,
-            lineHeight: '2rem !important',
+            fontSize: '1rem !important',
+            fontWeight: '600 !important',
+            lineHeight: '1.5rem !important',
             letterSpacing: '0.15px !important'
           }
         }}
       />
-      <CardContent sx={{ pt: theme => `${theme.spacing(0.75)} !important` }}>
-        <Grid container spacing={[5, 0]}>
-          {renderStats()}
-        </Grid>
+      <CardContent>
+        <ReactApexcharts
+          type='bar'
+          height={206}
+          options={options}
+          series={[{ name: 'Total Sales', data: [75, 100, 80, 100, 87.50, 62.50, 75.00, 71.43, 100, 100, 85.71, 85.71] }]}
+        />
       </CardContent>
     </Card>
   )

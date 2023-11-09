@@ -9,26 +9,26 @@ const navigation = (): VerticalNavItemsType => {
       icon: 'mdi:home-outline',
     },
     {
-      title: 'Dashboard',
+      title: 'ข้อมูลสถิติ',
       icon: 'mdi:chart-box-outline',
       badgeContent: 'สถิติ',
       badgeColor: 'error',
       children: [
-        {
+        /* {
           title: 'กรุงเทพมหานคร (เขต 13)',
           path: '/dashboards/rduprovince-page'
-        },
-        {
+        }, */
+        /* {
           title: 'สถิติด้านยา',
           path: '/dashboards/drugstats-page'
-        },
-        {
+        }, */
+        /* {
           title: 'ข้อมูลพื้นฐานจังหวัด',
           path: '/dashboards/chwdata-page'
-        }
+        } */
       ]
     },
-    {
+    /* {
       sectionTitle: 'ผู้ประสานงาน'
     },
     {
@@ -50,15 +50,15 @@ const navigation = (): VerticalNavItemsType => {
       title: 'ผู้ประสานงานอำเภอ',
       path: '/ampcoord-page',
       icon: 'mdi:account-search-outline',
-    },
+    }, */
     {
       sectionTitle: 'เครือข่ายใช้ยาสมเหตุผล'
     },
-    {
+    /* {
       title: 'ThaiRDU',
       path: '/thairdu-page',
       icon: 'mdi:pill',
-    },
+    }, */
     {
       title: 'Tawai for Health',
       path: '/tawai-page',

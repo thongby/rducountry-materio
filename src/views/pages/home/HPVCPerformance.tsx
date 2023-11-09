@@ -39,7 +39,7 @@ const HPVCPerformance = () => {
     stroke: { width: 0 },
     legend: { show: false },
     dataLabels: { enabled: false },
-    labels: ['AE1', 'AE2', 'AE3', 'อื่นๆ'],
+    labels: ['VACCINE', 'ANTIBIOTIC', 'CYTOSTATIC', 'ANTIINFLAMATORY'],
     states: {
       hover: {
         filter: { type: 'none' }
@@ -63,7 +63,7 @@ const HPVCPerformance = () => {
             value: {
               offsetY: -15,
               fontWeight: 500,
-              formatter: value => `${value}k`,
+              formatter: value => `${value}`,
               color: theme.palette.text.primary
             },
             total: {
@@ -71,7 +71,7 @@ const HPVCPerformance = () => {
               fontSize: '0.875rem',
               label: 'HPVC',
               color: theme.palette.text.secondary,
-              formatter: value => `${value.globals.seriesTotals.reduce((total: number, num: number) => total + num)}k`
+              formatter: value => `${value.globals.seriesTotals.reduce((total: number, num: number) => total + num)}`
             }
           }
         }
@@ -82,7 +82,7 @@ const HPVCPerformance = () => {
   return (
     <Card>
       <CardHeader
-        title='อาการข้างเคียงของยาจาก HPVC'
+        title='กลุ่มยาที่มีรายงานผลข้างเคียงปี 2564 (HPVC)'
         titleTypographyProps={{
           sx: { lineHeight: '2rem !important', letterSpacing: '0.15px !important' }
         }}
@@ -96,7 +96,7 @@ const HPVCPerformance = () => {
       <CardContent>
         <Grid container sx={{ my: [0, 4, 1.625] }}>
           <Grid item xs={12} sm={6} sx={{ mb: [3, 0] }}>
-            <ReactApexcharts type='donut' height={220} series={[12, 25, 13, 50]} options={options} />
+            <ReactApexcharts type='donut' height={220} series={[43882, 16785, 11047, 10851]} options={options} />
           </Grid>
           <Grid item xs={12} sm={6} sx={{ my: 'auto' }}>
             <Box sx={{ mr: 2, display: 'flex', alignItems: 'center' }}>
@@ -104,8 +104,8 @@ const HPVCPerformance = () => {
                 <Icon icon='mdi:currency-usd' />
               </CustomAvatar>
               <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                <Typography variant='body2'>จำนวนรายงาน</Typography>
-                <Typography variant='h6'>6,400</Typography>
+                <Typography variant='body2'>รายงานทั้งหมด</Typography>
+                <Typography variant='h6'>136,453</Typography>
               </Box>
             </Box>
             <Divider sx={{ my: theme => `${theme.spacing(4)} !important` }} />
@@ -120,9 +120,9 @@ const HPVCPerformance = () => {
                   }}
                 >
                   <Icon icon='mdi:circle' />
-                  <Typography variant='body2'>AE1</Typography>
+                  <Typography variant='body2'>VACCINE</Typography>
                 </Box>
-                <Typography sx={{ fontWeight: 600 }}>2,150</Typography>
+                <Typography sx={{ fontWeight: 600 }}>43,882</Typography>
               </Grid>
               <Grid item xs={6} sx={{ mb: 4 }}>
                 <Box
@@ -134,9 +134,9 @@ const HPVCPerformance = () => {
                   }}
                 >
                   <Icon icon='mdi:circle' />
-                  <Typography variant='body2'>AE2</Typography>
+                  <Typography variant='body2'>ANTIBIOTIC</Typography>
                 </Box>
-                <Typography sx={{ fontWeight: 600 }}>900</Typography>
+                <Typography sx={{ fontWeight: 600 }}>16,785</Typography>
               </Grid>
               <Grid item xs={6}>
                 <Box
@@ -148,9 +148,9 @@ const HPVCPerformance = () => {
                   }}
                 >
                   <Icon icon='mdi:circle' />
-                  <Typography variant='body2'>AE3</Typography>
+                  <Typography variant='body2'>CYTOSTATICS</Typography>
                 </Box>
-                <Typography sx={{ fontWeight: 600 }}>750</Typography>
+                <Typography sx={{ fontWeight: 600 }}>11,047</Typography>
               </Grid>
               <Grid item xs={6}>
                 <Box
@@ -162,9 +162,9 @@ const HPVCPerformance = () => {
                   }}
                 >
                   <Icon icon='mdi:circle' />
-                  <Typography variant='body2'>อื่นๆ</Typography>
+                  <Typography variant='body2'>ANTIINFLAMATORY</Typography>
                 </Box>
-                <Typography sx={{ fontWeight: 600 }}>200</Typography>
+                <Typography sx={{ fontWeight: 600 }}>10,851</Typography>
               </Grid>
             </Grid>
           </Grid>

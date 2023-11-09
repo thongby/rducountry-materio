@@ -82,7 +82,7 @@ const GPPOverview = () => {
   return (
     <Card>
       <CardHeader
-        title='ภาพรวมร้านขายยา'
+        title='ภาพรวมร้านขายยา (เฉพาะที่รายงาน)'
         titleTypographyProps={{
           sx: { lineHeight: '2rem !important', letterSpacing: '0.15px !important' }
         }}

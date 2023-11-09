@@ -48,7 +48,7 @@ const GPPPerformance = () => {
     xaxis: {
       axisTicks: { show: false },
       axisBorder: { show: false },
-      categories: ['1', '2', '3', '4', '5', '6','7','8','9','10','11','12','13'],
+      categories: ['1', '2', '3', '4', '5', '6','7','8','9','10','11','12'],
       labels: {
         style: {
           fontSize: '0.875rem',
@@ -64,8 +64,8 @@ const GPPPerformance = () => {
   return (
     <Card>
       <CardHeader
-        title='ร้านขายยาผ่านเกณฑ์ GPP รายเขต'
-        subheader='600 ร้าน'
+        title='ร้านขายยาผ่านเกณฑ์ GPP รายเขต (เฉพาะที่รายงาน)'
+        subheader='5031/5052 ร้าน'
         subheaderTypographyProps={{
           sx: { mt: 1, fontWeight: 500, lineHeight: '2rem', color: 'text.primary', fontSize: '1.25rem !important' }
         }}
@@ -89,7 +89,7 @@ const GPPPerformance = () => {
           type='bar'
           height={206}
           options={options}
-          series={[{ name: 'Total Sales', data: [60, 258, 30, 240, 150, 200, 100, 25, 30, 50, 40, 60, 70] }]}
+          series={[{ name: 'Total Sales', data: [385, 304, 136, 683, 1142, 609, 149, 224, 204, 517, 470, 208] }]}
         />
       </CardContent>
     </Card>

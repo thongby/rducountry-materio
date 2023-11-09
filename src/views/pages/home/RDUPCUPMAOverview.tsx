@@ -105,7 +105,7 @@ const RDUPCUPMAOverview = () => {
               </CustomAvatar>
               <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                 <Typography variant='body2'>จำนวนรพ.สต.ถ่ายโอนทั้งหมด</Typography>
-                <Typography variant='h6'>3,000</Typography>
+                <Typography variant='h6'>รอปรับปรุงช้อมูล</Typography>
               </Box>
             </Box>
             <Divider sx={{ my: theme => `${theme.spacing(4)} !important` }} />
@@ -122,7 +122,7 @@ const RDUPCUPMAOverview = () => {
                   <Icon icon='mdi:circle' />
                   <Typography variant='body2'>A</Typography>
                 </Box>
-                <Typography sx={{ fontWeight: 600 }}>1,150</Typography>
+                <Typography sx={{ fontWeight: 600 }}>0</Typography>
               </Grid>
               <Grid item xs={6} sx={{ mb: 4 }}>
                 <Box
@@ -136,7 +136,7 @@ const RDUPCUPMAOverview = () => {
                   <Icon icon='mdi:circle' />
                   <Typography variant='body2'>B</Typography>
                 </Box>
-                <Typography sx={{ fontWeight: 600 }}>900</Typography>
+                <Typography sx={{ fontWeight: 600 }}>0</Typography>
               </Grid>
               <Grid item xs={6}>
                 <Box
@@ -150,7 +150,7 @@ const RDUPCUPMAOverview = () => {
                   <Icon icon='mdi:circle' />
                   <Typography variant='body2'>C</Typography>
                 </Box>
-                <Typography sx={{ fontWeight: 600 }}>750</Typography>
+                <Typography sx={{ fontWeight: 600 }}>0</Typography>
               </Grid>
               <Grid item xs={6}>
                 <Box
@@ -164,7 +164,7 @@ const RDUPCUPMAOverview = () => {
                   <Icon icon='mdi:circle' />
                   <Typography variant='body2'>D</Typography>
                 </Box>
-                <Typography sx={{ fontWeight: 600 }}>200</Typography>
+                <Typography sx={{ fontWeight: 600 }}>0</Typography>
               </Grid>
             </Grid>
           </Grid>

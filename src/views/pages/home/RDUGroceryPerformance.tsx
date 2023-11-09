@@ -48,7 +48,7 @@ const RDUGroceryPerformance = () => {
     xaxis: {
       axisTicks: { show: false },
       axisBorder: { show: false },
-      categories: ['1', '2', '3', '4', '5', '6','7','8','9','10','11','12','13'],
+      categories: ['1', '2', '3', '4', '5', '6','7','8','9','10','11','12'],
       labels: {
         style: {
           fontSize: '0.875rem',
@@ -65,7 +65,7 @@ const RDUGroceryPerformance = () => {
     <Card>
       <CardHeader
         title='ร้านขายขายของชำรายเขต'
-        subheader='5000'
+        subheader='13019'
         subheaderTypographyProps={{
           sx: { mt: 1, fontWeight: 500, lineHeight: '2rem', color: 'text.primary', fontSize: '1.25rem !important' }
         }}
@@ -89,7 +89,7 @@ const RDUGroceryPerformance = () => {
           type='bar'
           height={206}
           options={options}
-          series={[{ name: 'Total Sales', data: [60, 258, 30, 240, 150, 200, 100, 25, 30, 50, 40, 60, 70] }]}
+          series={[{ name: 'Total Sales', data: [679, 3028, 1527, 311, 1363, 736, 1711, 66, 459, 723, 1719, 697] }]}
         />
       </CardContent>
     </Card>

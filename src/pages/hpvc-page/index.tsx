@@ -16,10 +16,12 @@ const HPVCPage = () => {
             <Typography sx={{ mb: 2 }}>Health Product Vigilance Center (HPVC)</Typography>
             <br />
             <Typography>
-            การเฝ้าระวังความปลอดภัยด้านผลิตภัณฑ์สุขภาพ เป็นหนึ่งในภารกิจที่สำคัญของสำนักงานคณะกรรมการอาหารและยาในการกำกับดูแลผลิตภัณฑ์สุขภาพ โดยเฉพาะภายหลังผลิตภัณฑ์ออกสู่ตลาด การดำเนินงานดังกล่าวอยู่ภายใต้ความรับผิดชอบของศูนย์เฝ้าระวังความปลอดภัยด้านผลิตภัณฑ์สุขภาพ (Health Product Vigilance Center: HPVC)
+              การเฝ้าระวังความปลอดภัยด้านผลิตภัณฑ์สุขภาพ เป็นหนึ่งในภารกิจที่สำคัญของสำนักงานคณะกรรมการอาหารและยาในการกำกับดูแลผลิตภัณฑ์สุขภาพ โดยเฉพาะภายหลังผลิตภัณฑ์ออกสู่ตลาด การดำเนินงานดังกล่าวอยู่ภายใต้ความรับผิดชอบของศูนย์เฝ้าระวังความปลอดภัยด้านผลิตภัณฑ์สุขภาพ (Health Product Vigilance Center: HPVC)
             </Typography>
             <br />
-            <Button variant="contained">HPVC</Button>
+            <Button variant="contained" href="https://hpvcth.fda.moph.go.th/">
+              HPVC
+            </Button>
           </CardContent>
         </Card>
       </Grid>

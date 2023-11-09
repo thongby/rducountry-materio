@@ -21,7 +21,9 @@ const HDCPage = () => {
               เพื่อตรวจสอบและประมวลผลตามขั้นตอนการประมวลผลที่สร้างจากส่วนกลาง และข้อมูลที่ถูกประมวลผล และส่งมายังฐานข้อมูลกลางระดับกระทรวงแบบอัตโนมัติ
             </Typography>
             <br />
-            <Button variant="contained">HDC (RDU)</Button>
+            <Button variant="contained" href="https://hdcservice.moph.go.th/hdc/reports/page.php?cat_id=03b912ab9ccb4c07280a89bf05e5900e">
+              HDC (RDU)
+            </Button>
           </CardContent>
         </Card>
       </Grid>
